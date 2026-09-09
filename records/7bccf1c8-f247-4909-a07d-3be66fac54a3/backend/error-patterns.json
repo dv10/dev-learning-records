@@ -1,0 +1,62 @@
+[
+  {
+    "pattern_id": "return-contract-001",
+    "first_date": "2026-09-08",
+    "last_date": "2026-09-08",
+    "pattern": "把方法要求返回的运费误写成对订单金额做加减",
+    "type": "judgment",
+    "occurrences": 2,
+    "latest_evidence": "经停车费缩小任务后，能将直接返回费用的模型迁回运费题",
+    "repair_training": "写代码前先用一句话写明方法返回值代表什么；2026-09-10 延迟复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "variable-role-001",
+    "first_date": "2026-09-08",
+    "last_date": "2026-09-08",
+    "pattern": "混淆对象、字段、构造器参数和赋值方向",
+    "type": "knowledge",
+    "occurrences": 2,
+    "latest_evidence": "在正确模型展示后，单字段任务能写出 text = initialText",
+    "repair_training": "用不同名参数完成赋值，并在延迟复测中解释 this 指向当前对象",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "java-statement-syntax-001",
+    "first_date": "2026-09-08",
+    "last_date": "2026-09-08",
+    "pattern": "完整语句末尾漏写分号，字符串曾使用单引号",
+    "type": "operation",
+    "occurrences": 3,
+    "latest_evidence": "ParkingFeePractice、Label 和 OrderTotal 出现语法机械错误",
+    "repair_training": "运行前集中检查赋值、return、throw 和方法调用末尾的分号；字符串统一使用双引号",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "list-vs-array-001",
+    "first_date": "2026-09-08",
+    "last_date": "2026-09-08",
+    "pattern": "将 List 类型名当作集合变量，并混用数组访问语法",
+    "type": "knowledge",
+    "occurrences": 2,
+    "latest_evidence": "展示增强 for 正确模型后，缩小任务结构正确但遗漏元素类型",
+    "repair_training": "用元素类型、单个元素变量、集合变量三个角色复述增强 for；2026-09-11 无提示复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "int-return-type-001",
+    "first_date": "2026-09-09",
+    "last_date": "2026-09-09",
+    "pattern": "曾把方法名前的 int 解释为字段正整数，并认为纯 int 折扣计算可能返回浮点数",
+    "type": "knowledge",
+    "occurrences": 1,
+    "latest_evidence": "经纠正后能用鸡蛋与电脑类比说明类型匹配但业务语义可能错误；订单与库存代码均返回正确 int",
+    "repair_training": "2026-09-12 无提示解释 int 返回类型、整数运算与业务返回值三者区别",
+    "evidence_scope": "learner",
+    "extensions": {}
+  }
+]

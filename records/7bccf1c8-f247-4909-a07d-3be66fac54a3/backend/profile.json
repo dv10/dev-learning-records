@@ -1,0 +1,59 @@
+{
+  "schema_version": 3,
+  "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
+  "alias": null,
+  "track": "backend",
+  "language": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "created_at": "2026-09-08T11:00:49Z",
+  "updated_at": "2026-09-09T10:02:11Z",
+  "goal": {
+    "primary": "能够独立开发 Spring Boot 项目",
+    "cycle_days": 90,
+    "plan_window_days": 7,
+    "cycle_outcomes": [
+      "独立完成一个包含 REST API、参数校验、异常处理和数据库访问的 Spring Boot 项目",
+      "能用作品和运行结果说明 Java 核心语法、面向对象、集合、异常、测试与 Spring Boot 的作用",
+      "能独立阅读常见编译错误并完成基础定位和修复"
+    ],
+    "weekly_days": 5,
+    "daily_minutes": 60
+  },
+  "background": {
+    "summary": "了解过少量 Java 基础，尚无独立 Java 或 Spring Boot 项目证据",
+    "topics": [
+      {
+        "topic_id": "java-basics",
+        "label": "Java 基础",
+        "status": "used_with_help",
+        "evidence": "条件、构造器和集合任务在提示后完成；2026-09-09 独立完成方法数据流并通过库存迁移"
+      }
+    ],
+    "target_environment": [],
+    "production_experience": null
+  },
+  "habits": {
+    "preferred_sequence": "先讲再练",
+    "feedback_style": "短而可行动，基于运行结果纠错",
+    "task_style": "教练创建目录、演示文件和测试样板；学习者完成当天唯一核心逻辑",
+    "notes": "容易中断的原因尚未提供"
+  },
+  "constraints": {
+    "roadmap": "90 天先建立主要知识地图，同时以可运行作品而非看过内容作为进度证据",
+    "schedule_notes": "每周 5 天，每天 60 分钟；7 天为滚动计划窗口",
+    "platform_notes": "本机已有 JDK 11，尚未安装 Maven",
+    "items": [
+      "无目标岗位或公司版本限制",
+      "不要求学习者手动创建演示文件"
+    ]
+  },
+  "track_specific": {
+    "target_stack": [
+      "java",
+      "spring-boot"
+    ],
+    "roadmap_level": "L1",
+    "notes": "先补语言基础，提前穿插面向对象与集合；Maven、Stream、并发和 Spring 后移"
+  },
+  "extensions": {}
+}

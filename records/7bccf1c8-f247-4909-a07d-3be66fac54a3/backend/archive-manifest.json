@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "archive_type": "dev-learning-coach-records",
+  "record_schema_version": 3,
+  "generated_at": "2026-09-09T10:02:57Z",
+  "archive_revision": "2026-09-09T10-02-57Z--f1613e998df4",
+  "remote_revision": null,
+  "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
+  "track": "backend",
+  "files": [
+    {
+      "path": "profile.json",
+      "size": 2176,
+      "sha256": "79fcabf815f4f20973f81378a6daa165ebb5dc07e6c5b94eadc91de6217eb63e",
+      "kind": "profile",
+      "immutable": false
+    },
+    {
+      "path": "state.json",
+      "size": 1874,
+      "sha256": "bbe3c3df3de064d1d8d107894f83191e7e30212dd01909508c4e4324d6c8927a",
+      "kind": "state",
+      "immutable": false
+    },
+    {
+      "path": "plan.md",
+      "size": 2349,
+      "sha256": "6d13a6d47f5ddb7704993488f71c4cb2d6c602e95a80ded6cfc12156fd1ad38a",
+      "kind": "plan",
+      "immutable": false
+    },
+    {
+      "path": "error-patterns.json",
+      "size": 2680,
+      "sha256": "87b760bf91995ea1b57f76d9389664afb238ea9405badaeb2c06f58ad5a4f443",
+      "kind": "error_patterns",
+      "immutable": false
+    },
+    {
+      "path": "sessions/2026-09-08T11-01-00Z--eee15992-5e06-4ced-a22e-fa73408a2724.md",
+      "size": 1966,
+      "sha256": "134d4ee54d4b1cabe43cf97e62515114f69d256f510f2800fe3e329deffc1807",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-09-09T03-54-19Z--74e5b248-9aad-4dc7-949b-e213d496f50a.md",
+      "size": 1729,
+      "sha256": "644873baec1504bc3b47b63c6c61d944a288585b1715a9a3816fc71825ca823d",
+      "kind": "session",
+      "immutable": true
+    }
+  ]
+}
