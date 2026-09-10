@@ -14,23 +14,23 @@
   {
     "pattern_id": "variable-role-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-08",
+    "last_date": "2026-09-10",
     "pattern": "混淆对象、字段、构造器参数和赋值方向",
     "type": "knowledge",
-    "occurrences": 2,
-    "latest_evidence": "在正确模型展示后，单字段任务能写出 text = initialText",
-    "repair_training": "用不同名参数完成赋值，并在延迟复测中解释 this 指向当前对象",
+    "occurrences": 3,
+    "latest_evidence": "2026-09-10 延迟复测仍把 name = name 解释为 this.name = name 的简写；纠正后 OrderItem 三字段赋值正确",
+    "repair_training": "用变量查找优先级解释同名遮蔽；2026-09-13 再次无提示复测",
     "evidence_scope": "learner",
     "extensions": {}
   },
   {
     "pattern_id": "java-statement-syntax-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-08",
+    "last_date": "2026-09-10",
     "pattern": "完整语句末尾漏写分号，字符串曾使用单引号",
     "type": "operation",
-    "occurrences": 3,
-    "latest_evidence": "ParkingFeePractice、Label 和 OrderTotal 出现语法机械错误",
+    "occurrences": 4,
+    "latest_evidence": "2026-09-10 在 IllegalArgumentException 消息中再次使用单引号，业务逻辑正确，由教练集中修复",
     "repair_training": "运行前集中检查赋值、return、throw 和方法调用末尾的分号；字符串统一使用双引号",
     "evidence_scope": "learner",
     "extensions": {}
@@ -56,6 +56,18 @@
     "occurrences": 1,
     "latest_evidence": "经纠正后能用鸡蛋与电脑类比说明类型匹配但业务语义可能错误；订单与库存代码均返回正确 int",
     "repair_training": "2026-09-12 无提示解释 int 返回类型、整数运算与业务返回值三者区别",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "private-vs-null-001",
+    "first_date": "2026-09-10",
+    "last_date": "2026-09-10",
+    "pattern": "把 private 字段的编译期访问失败误判为对象 null 或 JavaScript undefined",
+    "type": "knowledge",
+    "occurrences": 1,
+    "latest_evidence": "纠正后能实现 private stock 与 public sell，并说明封装可阻止非法状态",
+    "repair_training": "后续用编译错误与 NullPointerException 对照片段复测访问控制和运行时空指针",
     "evidence_scope": "learner",
     "extensions": {}
   }
