@@ -14,12 +14,12 @@
   {
     "pattern_id": "variable-role-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-10",
+    "last_date": "2026-09-14",
     "pattern": "混淆对象、字段、构造器参数和赋值方向",
     "type": "knowledge",
-    "occurrences": 3,
-    "latest_evidence": "2026-09-10 延迟复测仍把 name = name 解释为 this.name = name 的简写；纠正后 OrderItem 三字段赋值正确",
-    "repair_training": "用变量查找优先级解释同名遮蔽；2026-09-13 再次无提示复测",
+    "occurrences": 4,
+    "latest_evidence": "Delivery 构造器形式正确，但把 LocalDate 字段 shippedDate 赋成 String 参数 trackingNumber；展示对应关系后修正并运行通过",
+    "repair_training": "赋值前同时核对字段含义、参数含义和类型；2026-09-17 无提示编写构造器复测",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -38,12 +38,12 @@
   {
     "pattern_id": "list-vs-array-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-08",
+    "last_date": "2026-09-14",
     "pattern": "将 List 类型名当作集合变量，并混用数组访问语法",
     "type": "knowledge",
-    "occurrences": 2,
-    "latest_evidence": "展示增强 for 正确模型后，缩小任务结构正确但遗漏元素类型",
-    "repair_training": "用元素类型、单个元素变量、集合变量三个角色复述增强 for；2026-09-11 无提示复测",
+    "occurrences": 3,
+    "latest_evidence": "到期复测写成 for (productName for productNames)，展示固定结构后修正并输出三个商品名",
+    "repair_training": "记忆 for (元素类型 单个元素变量 : 集合变量)；2026-09-17 再次无提示复测",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -68,6 +68,18 @@
     "occurrences": 1,
     "latest_evidence": "纠正后能实现 private stock 与 public sell，并说明封装可阻止非法状态",
     "repair_training": "后续用编译错误与 NullPointerException 对照片段复测访问控制和运行时空指针",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "constructor-vs-main-001",
+    "first_date": "2026-09-14",
+    "last_date": "2026-09-14",
+    "pattern": "把类的构造器写成 public static void main 方法",
+    "type": "knowledge",
+    "occurrences": 1,
+    "latest_evidence": "经完整讲解后能说明构造器由 new 调用并初始化对象、main 是 JVM 程序入口；Delivery 中构造器形式迁移正确",
+    "repair_training": "2026-09-17 无提示编写一个与类同名、没有返回类型且非 static 的构造器",
     "evidence_scope": "learner",
     "extensions": {}
   }
