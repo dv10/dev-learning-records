@@ -6,7 +6,7 @@
   "language": "zh-CN",
   "timezone": "Asia/Shanghai",
   "created_at": "2026-09-08T11:00:49Z",
-  "updated_at": "2026-09-09T10:02:11Z",
+  "updated_at": "2026-09-14T09:08:57Z",
   "goal": {
     "primary": "能够独立开发 Spring Boot 项目",
     "cycle_days": 90,
@@ -35,8 +35,8 @@
   "habits": {
     "preferred_sequence": "先讲再练",
     "feedback_style": "短而可行动，基于运行结果纠错",
-    "task_style": "教练创建目录、演示文件和测试样板；学习者完成当天唯一核心逻辑",
-    "notes": "容易中断的原因尚未提供"
+    "task_style": "教练创建目录、演示文件和测试样板；多文件练习先提供入口、调用与返回地图；学习者完成当天唯一核心逻辑",
+    "notes": "学习者主动指出多文件调用流向对初学者不透明；后续固定提供调用路径与方法定位规则"
   },
   "constraints": {
     "roadmap": "90 天先建立主要知识地图，同时以可运行作品而非看过内容作为进度证据",
