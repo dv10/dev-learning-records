@@ -96,3 +96,11 @@
 - 最终 `OrderConsoleApp` 在多文件调用链中正确接收 `OrderReceipt`，输出 `473 / 非法数量异常 / 249`。
 - 学习者将全体练习迁移到 Maven 标准项目结构并加入 package；`mvn test` 通过，项目级运行 `day5.OrderConsoleApp` 通过。
 - 下一步：2026-09-17 先复测增强 for 与构造器，再学习 Maven/package 结构和基础测试。
+
+### Day 6 完成记录（2026-09-16）
+
+- `PackageRunner` 正确使用 `package day6.app` 和 `import day6.catalog.Product`，跨包创建商品并输出名称与价格。
+- `SameNameRunner` 只导入 `day6.order.Message`，同时用全限定类名创建 `day6.payment.Message`；Maven 编译通过并分别输出订单消息、支付消息。
+- 两条结果最初因 `print` 连在一起，属于展示格式，由教练机械改为 `println`；package/import 核心逻辑无错误。
+- package/import 达到独立完成并通过即时迁移，安排 2026-09-21 无提示复测；整体 Level 保持 L1。
+- 下一步：2026-09-17 先复测增强 for 与构造器，再学习 Maven 测试目录和第一个 JUnit 测试。
