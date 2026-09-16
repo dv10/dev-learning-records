@@ -2,37 +2,37 @@
   "schema_version": 1,
   "archive_type": "dev-learning-coach-records",
   "record_schema_version": 3,
-  "generated_at": "2026-09-14T09:10:53Z",
-  "archive_revision": "2026-09-14T09-10-53Z--b63573b77719",
+  "generated_at": "2026-09-16T02:16:50Z",
+  "archive_revision": "2026-09-16T02-16-50Z--9cb235c86733",
   "remote_revision": null,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
   "files": [
     {
       "path": "profile.json",
-      "size": 2317,
-      "sha256": "9ed2e1c108cc173ba9f6b632b5ffc67ced8f55030912469065d4741ac8c924bd",
+      "size": 2440,
+      "sha256": "209874332e97c41ab5b9dffae39a5d6fa5e2f24a5bb9822b8d967ccc8958beeb",
       "kind": "profile",
       "immutable": false
     },
     {
       "path": "state.json",
-      "size": 2246,
-      "sha256": "4035170f82c3a523fec8209fe49bb185ba2aacae75ddb006088e21567a981421",
+      "size": 2470,
+      "sha256": "1d33fb122ec4fdc75e21172a21f2cd6dfe2bf60110cbc0725a1b98e3250fa685",
       "kind": "state",
       "immutable": false
     },
     {
       "path": "plan.md",
-      "size": 5496,
-      "sha256": "672f598f165cefc3693f063a482c32f57f2327c65f780c11c7486f152892afbb",
+      "size": 6827,
+      "sha256": "c2840d37fb69a52540b9f24cb7c4cee5caaed04dbd194cd30ac6b8bfa9f55c74",
       "kind": "plan",
       "immutable": false
     },
     {
       "path": "error-patterns.json",
-      "size": 4676,
-      "sha256": "27f4f8e070ba2787ce721ea0373ace2de46d2c0ee84f67f0ee842c8cae6eb05e",
+      "size": 4760,
+      "sha256": "30ba5e68ef9ca8e1fb7c4ccfe984b393966713ff49524c83d168fd536b6fb592",
       "kind": "error_patterns",
       "immutable": false
     },
@@ -68,6 +68,13 @@
       "path": "sessions/2026-09-14T03-34-22Z--939f1a23-ccf2-45cd-8745-0d322a7f1f8d.md",
       "size": 2169,
       "sha256": "f4157f24b336cd98569ad75f1d98eaf1fc881972e7b4c1826d0097bfe00c6162",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-09-15T02-37-38Z--c4892dc1-9779-4595-b454-2ce60c1f9dea.md",
+      "size": 2453,
+      "sha256": "1f366496418cf9f320864003153fd3bb7d734a5cfb3a34b7ce8531cd94b4cfbf",
       "kind": "session",
       "immutable": true
     }

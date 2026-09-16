@@ -2,37 +2,38 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-09-14T09:08:57Z",
+  "updated_at": "2026-09-16T02:15:06Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "提示下会做（List 遍历语法可迁移；汇总语义与跨文件封装仍需提示）",
-  "current_cycle": "2026-09-08--cycle-1",
-  "current_day": 5,
-  "strongest_evidence": "返回类型延迟复测的业务结果独立正确；Cart 与 Warehouse 两个 List 汇总最终分别输出 562/0 和 243/0，增强 for 语法在两题中正确",
-  "key_gap": "仍会把金额汇总写成元素计数；跨文件时倾向直接读取 private 字段，而不是沿类型找到 public 业务方法",
-  "next_task": "Day 5：使用异常处理保护订单输入，并组装命令行订单程序",
+  "mastery_level": "独立完成（try/catch 可即时迁移并完成命令行订单程序；基础延迟复测仍待完成）",
+  "current_cycle": "2026-09-15--cycle-2",
+  "current_day": 6,
+  "strongest_evidence": "在 PaymentRunner 与 OrderConsoleApp 中迁移 try/catch；Maven 项目编译通过，最终订单程序输出 473、非法数量异常与 249",
+  "key_gap": "对象变量类型和不同 public 方法的返回业务含义仍会错配；构造器、集合与封装边界仍待延迟复测",
+  "next_task": "Day 6：完成增强 for 与构造器到期复测，再学习 Maven/package 项目结构和基础测试",
   "next_review_at": "2026-09-17",
   "pending_reviews": [
     "2026-09-17：无提示写出 List 的增强 for 遍历",
     "2026-09-17：无提示编写构造器并正确对应字段与参数",
     "2026-09-18：无提示为文本、有限状态和日期选择 String、enum、LocalDate",
-    "2026-09-19：无提示完成 List 金额汇总，并通过对象公开方法获取单项结果"
+    "2026-09-19：无提示完成 List 金额汇总，并通过对象公开方法获取单项结果",
+    "2026-09-20：无提示用 try/catch 处理对象创建异常，并正确接收对象返回值"
   ],
-  "requires_previous_code": false,
-  "recommended_resume_action": "若未到 2026-09-17，直接开始 Day 5 异常处理；到期后先做增强 for 与构造器短复测",
-  "last_session_at": "2026-09-14T09:08:57Z",
+  "requires_previous_code": true,
+  "recommended_resume_action": "2026-09-17 先完成增强 for 与构造器短复测，再基于现有 Maven 项目学习 package、构建和测试",
+  "last_session_at": "2026-09-16T02:15:06Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.44,
-    "transfer_pass_rate": 0.44,
+    "independent_completion_rate": 0.5,
+    "transfer_pass_rate": 0.55,
     "delayed_review_pass_rate": 0.25,
     "highest_prompt_level": 4,
-    "evidence_count": 9
+    "evidence_count": 10
   },
   "extensions": {
-    "knowledge_gap": "跨文件调用时尚未稳定通过变量类型定位 public 方法；private 封装边界在实际调用中再次失败",
-    "operation_gap": "增强 for 结构本次两次正确；return 语句再次漏分号，由教练机械修复",
-    "judgment_gap": "返回类型与退款业务含义延迟复测通过；集合任务曾把总金额误写为元素数量",
-    "transfer_gap": "集合汇总迁移到库存场景后仍需展示 public 方法调用答案，尚未达到独立迁移",
+    "knowledge_gap": "曾把 new OrderRequest 的对象结果声明为 int；经讲解后能在后续任务中正确使用 PaymentRequest 与 OrderReceipt 类型",
+    "operation_gap": "catch 多写一个右括号，由教练机械修复；项目已迁移到 Maven 标准目录并加入 package 声明",
+    "judgment_gap": "PaymentRunner 初次把 getAmount 与 calculateRemainingBalance 的业务标签写反，纠正后 OrderConsoleApp 对象返回值使用正确",
+    "transfer_gap": "try/catch 从订单数量迁移到支付和最终订单程序成功；集合与 private 封装迁移仍待延迟复测",
     "pressure_gap": "未测量"
   }
 }
