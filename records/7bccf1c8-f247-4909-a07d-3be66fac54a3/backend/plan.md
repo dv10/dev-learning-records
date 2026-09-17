@@ -104,3 +104,13 @@
 - 两条结果最初因 `print` 连在一起，属于展示格式，由教练机械改为 `println`；package/import 核心逻辑无错误。
 - package/import 达到独立完成并通过即时迁移，安排 2026-09-21 无提示复测；整体 Level 保持 L1。
 - 下一步：2026-09-17 先复测增强 for 与构造器，再学习 Maven 测试目录和第一个 JUnit 测试。
+
+### Day 7 完成记录（2026-09-17）
+
+- 在 Maven 项目中配置 JUnit 5 与 Surefire，理解 `src/main/java`、`src/test/java` 和 `mvn test` 的执行关系。
+- `DeliveryFeeCalculatorTest` 从普通样本扩展到 `98 / 99` 规则边界；`StockServiceTest` 完成业务迁移，并用 `assertThrows` 验证异常类型和消息。
+- `assertThrows`、`.class` 和 Lambda 延迟执行首次出现时讲解不完整，补充讲解后代码与运行结果正确；该困惑不计为学习者错误。
+- 构造器与增强 `for` 到期复测无提示通过：字段保存正确，库存数量 `8 + 5 + 2 = 15`，空集合为 `0`。
+- 最终 `mvn test` 执行 9 个测试，Failures 0、Errors 0；JUnit 安排 2026-09-22 延迟复测。
+- 本课程按 90 分钟内容块设计，实际活跃学习时长未计时，不记录为已学满 90 分钟。
+- 下一步：2026-09-18 复测 `String / enum / LocalDate`，再学习 Maven 依赖坐标与 `test` scope。

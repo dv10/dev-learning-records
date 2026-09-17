@@ -14,12 +14,12 @@
   {
     "pattern_id": "variable-role-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-16",
+    "last_date": "2026-09-17",
     "pattern": "混淆对象、字段、构造器参数和赋值方向",
     "type": "knowledge",
     "occurrences": 5,
-    "latest_evidence": "首次把 new OrderRequest(quantity) 的对象结果声明成 int；纠正后 PaymentRequest 与 OrderReceipt 对象变量类型正确",
-    "repair_training": "赋值前同时核对左侧变量类型与右侧表达式结果类型；2026-09-17 构造器复测，2026-09-20 对象返回值复测",
+    "latest_evidence": "InventoryEntry 构造器延迟复测中无提示正确完成 this.sku = sku 与 this.quantity = quantity",
+    "repair_training": "构造器字段与参数对应已通过延迟复测；2026-09-20 继续复测对象返回值类型",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -38,12 +38,12 @@
   {
     "pattern_id": "list-vs-array-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-14",
+    "last_date": "2026-09-17",
     "pattern": "将 List 类型名当作集合变量，并混用数组访问语法",
     "type": "knowledge",
     "occurrences": 3,
-    "latest_evidence": "到期复测写成 for (productName for productNames)，展示固定结构后修正并输出三个商品名",
-    "repair_training": "记忆 for (元素类型 单个元素变量 : 集合变量)；2026-09-17 再次无提示复测",
+    "latest_evidence": "到期复测中无提示写出 for (InventoryEntry itemEntry : entries)，并通过 getter 正确累加数量",
+    "repair_training": "增强 for 语法已通过延迟复测；后续在集合业务中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -74,12 +74,12 @@
   {
     "pattern_id": "constructor-vs-main-001",
     "first_date": "2026-09-14",
-    "last_date": "2026-09-14",
+    "last_date": "2026-09-17",
     "pattern": "把类的构造器写成 public static void main 方法",
     "type": "knowledge",
     "occurrences": 1,
-    "latest_evidence": "经完整讲解后能说明构造器由 new 调用并初始化对象、main 是 JVM 程序入口；Delivery 中构造器形式迁移正确",
-    "repair_training": "2026-09-17 无提示编写一个与类同名、没有返回类型且非 static 的构造器",
+    "latest_evidence": "InventoryEntry 延迟复测中能在已提供的构造器内无提示正确保存两个字段，相关测试通过",
+    "repair_training": "构造器用途与字段赋值已通过延迟复测；后续在新对象模型中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },

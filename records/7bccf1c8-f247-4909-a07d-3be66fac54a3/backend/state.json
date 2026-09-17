@@ -2,39 +2,38 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-09-16T09:11:27Z",
+  "updated_at": "2026-09-17T11:00:19Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "独立完成（try/catch 与 package/import 均可即时迁移；基础延迟复测仍待完成）",
+  "mastery_level": "独立完成（构造器与增强 for 延迟复测通过；JUnit 普通、异常与边界测试可在讲解后迁移）",
   "current_cycle": "2026-09-15--cycle-2",
   "current_day": 7,
-  "strongest_evidence": "在 OrderConsoleApp 中迁移 try/catch，并在 SameNameRunner 中同时使用 import 与全限定类名调用两个不同包的同名 Message；Maven 编译运行通过",
-  "key_gap": "对象变量类型和不同 public 方法的返回业务含义仍会错配；构造器、集合与封装边界仍待延迟复测",
-  "next_task": "2026-09-17：无提示复测增强 for 与构造器，再学习 Maven 测试目录和第一个 JUnit 测试",
-  "next_review_at": "2026-09-17",
+  "strongest_evidence": "mvn test 执行 9 个测试全部通过；JUnit 从运费迁移到库存、异常和 98/99 边界，构造器与增强 for 到期复测无提示通过",
+  "key_gap": "集合金额汇总与 private/public 调用边界尚待延迟复测；JUnit 的 Lambda 延迟执行刚完成讲解，尚未延迟复测",
+  "next_task": "2026-09-18：无提示复测 String、enum、LocalDate，再学习 Maven 依赖坐标与 test scope",
+  "next_review_at": "2026-09-18",
   "pending_reviews": [
-    "2026-09-17：无提示写出 List 的增强 for 遍历",
-    "2026-09-17：无提示编写构造器并正确对应字段与参数",
     "2026-09-18：无提示为文本、有限状态和日期选择 String、enum、LocalDate",
     "2026-09-19：无提示完成 List 金额汇总，并通过对象公开方法获取单项结果",
     "2026-09-20：无提示用 try/catch 处理对象创建异常，并正确接收对象返回值",
-    "2026-09-21：无提示在不同包的同名类之间选择 import 与全限定类名"
+    "2026-09-21：无提示在不同包的同名类之间选择 import 与全限定类名",
+    "2026-09-22：无提示为普通结果、边界和异常编写 JUnit 测试"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "2026-09-17 先完成增强 for 与构造器短复测，再基于现有 Maven 项目学习测试目录和 JUnit",
-  "last_session_at": "2026-09-16T09:11:27Z",
+  "recommended_resume_action": "2026-09-18 先完成 String、enum、LocalDate 短复测，再继续 Maven 依赖管理",
+  "last_session_at": "2026-09-17T11:00:19Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.55,
-    "transfer_pass_rate": 0.6,
-    "delayed_review_pass_rate": 0.25,
+    "independent_completion_rate": 0.62,
+    "transfer_pass_rate": 0.65,
+    "delayed_review_pass_rate": 0.5,
     "highest_prompt_level": 4,
-    "evidence_count": 11
+    "evidence_count": 12
   },
   "extensions": {
-    "knowledge_gap": "曾把 new OrderRequest 的对象结果声明为 int；经讲解后能在后续任务中正确使用 PaymentRequest 与 OrderReceipt 类型",
-    "operation_gap": "catch 多写一个右括号，由教练机械修复；同名类练习仅有 print 换行展示问题，由教练机械整理",
+    "knowledge_gap": "构造器与增强 for 已通过延迟复测；JUnit Lambda 延迟执行经补充讲解后理解，仍待延迟复测",
+    "operation_gap": "边界测试多写一个分号但不影响运行，由教练机械整理；JUnit 与 Maven 测试执行正常",
     "judgment_gap": "PaymentRunner 初次把 getAmount 与 calculateRemainingBalance 的业务标签写反，纠正后 OrderConsoleApp 对象返回值使用正确",
-    "transfer_gap": "try/catch 从订单数量迁移到支付和最终订单程序成功；package/import 已迁移到不同包同名类；集合与 private 封装迁移仍待延迟复测",
+    "transfer_gap": "JUnit 普通结果测试已从运费迁移到库存，并覆盖异常与边界；集合金额汇总与 private 封装仍待延迟复测",
     "pressure_gap": "未测量"
   }
 }
