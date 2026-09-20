@@ -2,12 +2,12 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-16",
+    "last_date": "2026-09-20",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
-    "occurrences": 3,
-    "latest_evidence": "PaymentRunner 初次把 getAmount 标成剩余余额、把 calculateRemainingBalance 标成支付金额；定位后修正，OrderConsoleApp 两个 getter 使用正确",
-    "repair_training": "调用方法前先用一句话写明返回值的业务含义；结合 2026-09-19 集合与公开方法复测",
+    "occurrences": 4,
+    "latest_evidence": "PurchaseProcessor 首次绕过 PurchaseService.createReceipt 直接 new PurchaseReceipt，并把结果变量命名为 purchaseService；定位调用职责后修正",
+    "repair_training": "调用方法前先写清楚接收类型和业务含义；2026-09-25 无提示复测请求对象 → service → 结果对象",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -50,7 +50,7 @@
   {
     "pattern_id": "int-return-type-001",
     "first_date": "2026-09-09",
-    "last_date": "2026-09-14",
+    "last_date": "2026-09-20",
     "pattern": "曾把方法名前的 int 解释为字段正整数，并认为纯 int 折扣计算可能返回浮点数",
     "type": "knowledge",
     "occurrences": 1,
@@ -66,8 +66,8 @@
     "pattern": "尚未稳定理解 private 字段的跨类访问边界，曾把编译期访问失败误判为 null/undefined",
     "type": "knowledge",
     "occurrences": 2,
-    "latest_evidence": "WarehouseCalculator 中连续尝试直接访问 WarehouseItem 的 purchasePrice 和 quantity；展示后改为调用 public calculateStockValue",
-    "repair_training": "遇到对象变量先按类型打开对应类，只调用 public 业务方法；2026-09-19 结合集合汇总无提示复测",
+    "latest_evidence": "SalesSummary 延迟复测中无提示通过 item.calculateSubtotal() 获取单项结果，没有跨类访问 private 字段",
+    "repair_training": "延迟复测已通过；后续在集合与对象协作中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -86,12 +86,12 @@
   {
     "pattern_id": "collection-aggregation-001",
     "first_date": "2026-09-14",
-    "last_date": "2026-09-14",
+    "last_date": "2026-09-20",
     "pattern": "集合遍历结构正确，但把业务金额汇总写成元素数量累加",
     "type": "judgment",
     "occurrences": 2,
-    "latest_evidence": "CartCalculator 两次保留 count + 1，展示单项小计累加模型后输出 562/0；库存迁移最终输出 243/0",
-    "repair_training": "写循环前先明确累加器代表数量还是金额，并写出单个元素贡献值；2026-09-19 无提示复测",
+    "latest_evidence": "SalesSummary 延迟复测中无提示累加 item.calculateSubtotal()，样例合计 381，空集合为 0",
+    "repair_training": "延迟复测已通过；后续在订单总价与统计业务中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   }

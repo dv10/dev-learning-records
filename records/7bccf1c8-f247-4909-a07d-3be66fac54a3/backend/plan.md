@@ -114,3 +114,19 @@
 - 最终 `mvn test` 执行 9 个测试，Failures 0、Errors 0；JUnit 安排 2026-09-22 延迟复测。
 - 本课程按 90 分钟内容块设计，实际活跃学习时长未计时，不记录为已学满 90 分钟。
 - 下一步：2026-09-18 复测 `String / enum / LocalDate`，再学习 Maven 依赖坐标与 `test` scope。
+
+### Day 8 完成记录（2026-09-20）
+
+- 类型选择延迟复测无提示通过：文本、有限状态和日期分别使用 `String`、`DeliveryStatus`、`LocalDate`。
+- 集合金额汇总与公开方法边界延迟复测无提示通过：`SalesSummary` 调用 `item.calculateSubtotal()`，样例合计 `381`，空集合为 `0`。
+- `PurchaseProcessor` 第一次绕过 `PurchaseService.createReceipt` 直接创建结果对象；经一次调用位置提示后，正确完成“创建请求 → 调用 service → 接收结果 → 返回文本”，异常分支也通过。
+- 完整学习 Maven 依赖坐标、版本属性 `${...}`、默认 `compile` 与 `test` scope；Commons Lang 的版本最终由属性统一管理。
+- scope 对照实验中，普通 `mvn test` 曾因旧的 `target/classes` 误显成功；`mvn clean test` 正确暴露生产代码无法使用 test 依赖。恢复默认 scope 后，最终 17 个测试全部通过，依赖树显示 Commons Lang 为 compile、JUnit 为 test。
+- Maven 初次练习前的讲解顺序再次不符合“先讲再练”；教练暂停任务、完整重讲后再继续。此问题不计入学习者错误，后续新语法必须先完成概念、用途、完整示例与常见误区讲解。
+- 本课程按 90 分钟内容块设计，实际活跃学习时长未计时，不记录为已学满 90 分钟。
+- 下一步：2026-09-21 复测 package/import，再继续 Maven 生命周期与项目打包；2026-09-25 复测 scope 选择和多文件 service 调用链。
+
+## 调整补充（2026-09-20）
+
+- 新知识教学固定顺序：先说明为什么需要、整体位置、完整语法、每个关键标签或关键字、可运行示例和常见错误；学习者确认理解后才进入 TODO 练习。
+- `mvn test` 通过不再单独视为依赖配置正确；涉及依赖作用域或编译路径时，必须执行 `mvn clean test` 并检查依赖树。

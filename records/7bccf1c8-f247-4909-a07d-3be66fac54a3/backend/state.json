@@ -2,38 +2,37 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-09-17T11:00:19Z",
+  "updated_at": "2026-09-20T09:42:22Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "独立完成（构造器与增强 for 延迟复测通过；JUnit 普通、异常与边界测试可在讲解后迁移）",
+  "mastery_level": "独立完成（类型选择、集合聚合与公开方法边界延迟复测通过；多文件服务调用链需一次定位提示；Maven 依赖基础在完整讲解后完成）",
   "current_cycle": "2026-09-15--cycle-2",
-  "current_day": 7,
-  "strongest_evidence": "mvn test 执行 9 个测试全部通过；JUnit 从运费迁移到库存、异常和 98/99 边界，构造器与增强 for 到期复测无提示通过",
-  "key_gap": "集合金额汇总与 private/public 调用边界尚待延迟复测；JUnit 的 Lambda 延迟执行刚完成讲解，尚未延迟复测",
-  "next_task": "2026-09-18：无提示复测 String、enum、LocalDate，再学习 Maven 依赖坐标与 test scope",
-  "next_review_at": "2026-09-18",
+  "current_day": 8,
+  "strongest_evidence": "mvn clean test 执行 17 个测试全部通过；依赖树显示 JUnit 为 test、Commons Lang 为 compile；类型选择与集合/公开方法延迟复测无提示通过",
+  "key_gap": "多文件中服务职责与对象返回链仍需一次定位提示；package/import 与 JUnit 尚待延迟复测；Maven scope 需要延迟迁移验证",
+  "next_task": "2026-09-21：无提示复测不同包同名类的 import 与全限定类名，再学习 Maven 生命周期与项目打包",
+  "next_review_at": "2026-09-21",
   "pending_reviews": [
-    "2026-09-18：无提示为文本、有限状态和日期选择 String、enum、LocalDate",
-    "2026-09-19：无提示完成 List 金额汇总，并通过对象公开方法获取单项结果",
-    "2026-09-20：无提示用 try/catch 处理对象创建异常，并正确接收对象返回值",
     "2026-09-21：无提示在不同包的同名类之间选择 import 与全限定类名",
-    "2026-09-22：无提示为普通结果、边界和异常编写 JUnit 测试"
+    "2026-09-22：无提示为普通结果、边界和异常编写 JUnit 测试",
+    "2026-09-25：无提示让生产代码依赖使用版本属性并选择正确的 compile/test scope",
+    "2026-09-25：无提示沿调用链创建请求对象、调用 service 方法并接收结果对象"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "2026-09-18 先完成 String、enum、LocalDate 短复测，再继续 Maven 依赖管理",
-  "last_session_at": "2026-09-17T11:00:19Z",
+  "recommended_resume_action": "2026-09-21 先完成 package/import 短复测，再继续 Maven 生命周期与 package 打包",
+  "last_session_at": "2026-09-20T09:42:22Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.62,
-    "transfer_pass_rate": 0.65,
-    "delayed_review_pass_rate": 0.5,
+    "independent_completion_rate": 0.66,
+    "transfer_pass_rate": 0.68,
+    "delayed_review_pass_rate": 0.7,
     "highest_prompt_level": 4,
-    "evidence_count": 12
+    "evidence_count": 13
   },
   "extensions": {
-    "knowledge_gap": "构造器与增强 for 已通过延迟复测；JUnit Lambda 延迟执行经补充讲解后理解，仍待延迟复测",
-    "operation_gap": "边界测试多写一个分号但不影响运行，由教练机械整理；JUnit 与 Maven 测试执行正常",
-    "judgment_gap": "PaymentRunner 初次把 getAmount 与 calculateRemainingBalance 的业务标签写反，纠正后 OrderConsoleApp 对象返回值使用正确",
-    "transfer_gap": "JUnit 普通结果测试已从运费迁移到库存，并覆盖异常与边界；集合金额汇总与 private 封装仍待延迟复测",
+    "knowledge_gap": "Maven 坐标、版本属性与 scope 已完成完整讲解和即时实验，仍待延迟迁移；JUnit Lambda 延迟执行仍待延迟复测",
+    "operation_gap": "scope 实验后首次漏恢复且普通增量测试被旧编译产物误导；已通过 clean test 识别并修复",
+    "judgment_gap": "PurchaseProcessor 首次绕过 PurchaseService 直接创建结果对象；定位职责后已改为请求对象 → service → 结果对象",
+    "transfer_gap": "类型选择、集合金额汇总和 public 方法边界延迟复测通过；多文件 service 调用链安排 2026-09-25 再测",
     "pressure_gap": "未测量"
   }
 }
