@@ -2,12 +2,12 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-20",
+    "last_date": "2026-10-12",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
-    "occurrences": 4,
-    "latest_evidence": "PurchaseProcessor 首次绕过 PurchaseService.createReceipt 直接 new PurchaseReceipt，并把结果变量命名为 purchaseService；定位调用职责后修正",
-    "repair_training": "调用方法前先写清楚接收类型和业务含义；2026-09-25 无提示复测请求对象 → service → 结果对象",
+    "occurrences": 5,
+    "latest_evidence": "ImportReview 中调用两个 getText() 后丢弃返回值并 return 空字符串；明确返回值流向后改为拼接并返回",
+    "repair_training": "调用 getter 后明确结果用于局部变量、表达式还是 return；2026-10-16 无提示复测",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -92,6 +92,18 @@
     "occurrences": 2,
     "latest_evidence": "SalesSummary 延迟复测中无提示累加 item.calculateSubtotal()，样例合计 381，空集合为 0",
     "repair_training": "延迟复测已通过；后续在订单总价与统计业务中自然复查",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "object-construction-001",
+    "first_date": "2026-10-12",
+    "last_date": "2026-10-12",
+    "pattern": "使用全限定类名创建对象时遗漏 new",
+    "type": "operation",
+    "occurrences": 1,
+    "latest_evidence": "ImportReview 首次写成 day9.review.payment.Notice()；提示后改为 new day9.review.payment.Notice()",
+    "repair_training": "把对象创建固定识别为 类型 变量 = new 类型(参数)；2026-10-16 结合返回值复测",
     "evidence_scope": "learner",
     "extensions": {}
   }
