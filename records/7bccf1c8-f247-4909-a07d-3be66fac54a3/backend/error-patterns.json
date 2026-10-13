@@ -26,11 +26,11 @@
   {
     "pattern_id": "java-statement-syntax-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-09-16",
+    "last_date": "2026-10-13",
     "pattern": "完整语句末尾漏分号、字符串单引号或括号数量错误",
     "type": "operation",
-    "occurrences": 6,
-    "latest_evidence": "PaymentRunner 的 catch 参数后多写一个右括号，由教练机械修复；异常结构本身正确",
+    "occurrences": 7,
+    "latest_evidence": "CouponCalculatorTest 首次两个 assertEquals 语句漏分号，并出现无意义的测试方法尾部分号；结构修正后迁移测试无语法错误",
     "repair_training": "运行前集中检查成对括号、语句分号与字符串双引号",
     "evidence_scope": "learner",
     "extensions": {}
@@ -104,6 +104,30 @@
     "occurrences": 1,
     "latest_evidence": "ImportReview 首次写成 day9.review.payment.Notice()；提示后改为 new day9.review.payment.Notice()",
     "repair_training": "把对象创建固定识别为 类型 变量 = new 类型(参数)；2026-10-16 结合返回值复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "junit-test-structure-001",
+    "first_date": "2026-10-13",
+    "last_date": "2026-10-13",
+    "pattern": "将 JUnit 测试执行语句直接写在类体中，而不是放入带 @Test 的方法",
+    "type": "knowledge",
+    "occurrences": 1,
+    "latest_evidence": "CouponCalculatorTest 首次把对象调用和断言放在类体；展示一个完整测试方法后修正，并独立迁移到提现业务",
+    "repair_training": "先建立 @Test + void 方法 + 大括号，再在方法内按 Arrange/Act/Assert 编写；2026-10-17 延迟复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "junit-assertion-coverage-001",
+    "first_date": "2026-10-13",
+    "last_date": "2026-10-13",
+    "pattern": "异常测试的数据未进入异常分支，或只断言异常类型而遗漏要求的消息",
+    "type": "judgment",
+    "occurrences": 1,
+    "latest_evidence": "优惠券异常测试首次使用 80/80 且遗漏消息断言；修正后在提现业务中独立使用 0 并验证异常类型与消息",
+    "repair_training": "写异常测试前先确认输入会命中哪个判断，再逐项核对类型、消息和副作用要求；2026-10-17 延迟复测",
     "evidence_scope": "learner",
     "extensions": {}
   }
