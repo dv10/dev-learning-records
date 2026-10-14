@@ -130,5 +130,29 @@
     "repair_training": "写异常测试前先确认输入会命中哪个判断，再逐项核对类型、消息和副作用要求；2026-10-17 延迟复测",
     "evidence_scope": "learner",
     "extensions": {}
+  },
+  {
+    "pattern_id": "maven-pom-context-001",
+    "first_date": "2026-10-14",
+    "last_date": "2026-10-14",
+    "pattern": "只关注 POM 标签文本，未同时确认标签所在父节点，导致版本属性命名或 dependency scope 不生效",
+    "type": "knowledge",
+    "occurrences": 2,
+    "latest_evidence": "把 <scope>test</scope> 放在 <properties> 后构建仍成功；说明父节点含义后能够识别它只是自定义属性，并恢复正确依赖配置",
+    "repair_training": "修改 POM 时同时定位父节点：版本键定义在 properties，依赖的 groupId/artifactId/version/scope 定义在同一个 dependency；2026-10-18 无提示复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "maven-coordinate-copy-001",
+    "first_date": "2026-10-14",
+    "last_date": "2026-10-14",
+    "pattern": "添加第三方依赖时未把 groupId、artifactId 和 version 作为一个完整坐标精确复制",
+    "type": "operation",
+    "occurrences": 2,
+    "latest_evidence": "Commons Codec 首次把版本 1.17.1 写成 1.7.1，并把 groupId commons-codec 写成 org.apache.commons；定位后修正并通过 29 个测试",
+    "repair_training": "添加依赖后逐项对照 groupId、artifactId、version，再用 dependency:tree 核对 Maven 实际解析的完整坐标；2026-10-18 无提示复测",
+    "evidence_scope": "learner",
+    "extensions": {}
   }
 ]

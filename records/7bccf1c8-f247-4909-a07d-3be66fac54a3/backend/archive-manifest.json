@@ -2,9 +2,9 @@
   "schema_version": 1,
   "archive_type": "dev-learning-coach-records",
   "record_schema_version": 3,
-  "generated_at": "2026-10-13T03:44:23Z",
-  "archive_revision": "2026-10-13T03-44-23Z--eddda04cd233",
-  "remote_revision": "2026-10-12T08-19-08Z--e429233dc7d8",
+  "generated_at": "2026-10-14T08:24:18Z",
+  "archive_revision": "2026-10-14T08-24-18Z--cf610a0f5f3f",
+  "remote_revision": "2026-10-13T03-44-23Z--eddda04cd233",
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
   "files": [
@@ -17,22 +17,22 @@
     },
     {
       "path": "state.json",
-      "size": 2563,
-      "sha256": "edd1108105e84ce5621ed5fe4fd36e571e7ce0c68d2166061b4ed87541bfef0c",
+      "size": 2584,
+      "sha256": "bc52150fadc9514119cdcc449ec34cb488d239ca821ccf3afe830e0661e7af4d",
       "kind": "state",
       "immutable": false
     },
     {
       "path": "plan.md",
-      "size": 13112,
-      "sha256": "73c42cbdaeed1e7b3b0e72727b517264b5eedda6d66a066328ba3a1142bc0035",
+      "size": 14732,
+      "sha256": "b5ae5a32bc86d2649a8a918d8b2e1c396f311ead4a155f219e405d057e5995ed",
       "kind": "plan",
       "immutable": false
     },
     {
       "path": "error-patterns.json",
-      "size": 6360,
-      "sha256": "366d9eed8e62af151871e99619ec668ecef7a57fcef255bce72ba6fedf36b0a3",
+      "size": 7789,
+      "sha256": "16eef061c91b590ce55ad16f3e38918c3492821df1890e531ae37b417392d97a",
       "kind": "error_patterns",
       "immutable": false
     },
@@ -110,6 +110,20 @@
       "path": "sessions/2026-10-13T03-43-00Z--d684a5d7-9167-4a3b-840b-674a8bfb8392.md",
       "size": 3012,
       "sha256": "5a945e96a585ebab188ae2f4ddfcbe55b03b8dffb945f4251d9dfc5c9b67346d",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-10-14T06-43-47Z--36d7bb56-648b-4336-81f9-f8c8d4a26505.md",
+      "size": 2691,
+      "sha256": "707c5a6fa97d88bc0a1eeebd4312e78395d262ac87f61d4e6192cfe6da40c7ac",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-10-14T07-42-12Z--45da69a3-df5d-4281-a3a0-2ce66e6ab0c1.md",
+      "size": 2585,
+      "sha256": "833f3f7c11939b0de510360be3dd6dfc403cafe12eee5c8444e67637938f675c",
       "kind": "session",
       "immutable": true
     }

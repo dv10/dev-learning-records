@@ -162,3 +162,19 @@
 - 最终 `mvn clean test` 执行 25 个测试，Failures 0、Errors 0、BUILD SUCCESS。
 - JUnit 当前结论为“提示后会做并可即时迁移”，因原始延迟复测未独立通过，安排 2026-10-17 再次短复测，不重复整天内容。
 - 下一步：2026-10-14 无提示复测 Maven 版本属性与 `compile/test` scope。
+
+### Day 11 完成记录（2026-10-14）
+
+- Commons Collections 最终使用 `${commons-collections4.version}` 统一版本，并以默认 `compile` 范围供生产代码使用。
+- 版本属性首次误写成通用 `<version>`；scope 对照实验首次把 `<scope>test</scope>` 放入 `<properties>`，因此只产生未使用的普通属性。讲解 POM 父节点后完成修正与恢复。
+- `mvn clean test` 编译 65 个生产源文件和 12 个测试源文件，执行 27 个测试全部通过；依赖树显示 JUnit 为 `test`、Commons Collections 为 `compile`。
+- Maven 版本属性与 scope 当前为“提示下会做并可即时验证”，尚未达到延迟稳定掌握；安排 2026-10-18 短复测。
+- 下一步：2026-10-15 无提示复测“请求对象 → service → 结果对象”调用链。
+
+### Day 11 补充迁移（2026-10-14）
+
+- 为补足当天 90 分钟内容块，将相同核心能力迁移到 Commons Codec；生产代码通过 `DigestUtils` 生成订单编号 SHA-256。
+- 版本属性结构与默认 `compile` scope 判断正确；首次把 `1.17.1` 写为 `1.7.1`，并将 `groupId` `commons-codec` 套写为 `org.apache.commons`，经错误定位提示后修正。
+- 理解 `groupId` 表示组织或项目家族、`artifactId` 表示具体模块；Maven 坐标与 Java package 不能互相推断。
+- 最终 `mvn clean test` 执行 29 个测试全部通过；依赖树显示 JUnit 为 `test`，Lang3、Collections4、Codec 为 `compile`。
+- scope 判断出现独立迁移证据，但完整坐标仍需提示；2026-10-18 复测时同时检查版本属性、坐标和 scope。
