@@ -2,12 +2,12 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-10-12",
+    "last_date": "2026-10-15",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
-    "occurrences": 5,
-    "latest_evidence": "ImportReview 中调用两个 getText() 后丢弃返回值并 return 空字符串；明确返回值流向后改为拼接并返回",
-    "repair_training": "调用 getter 后明确结果用于局部变量、表达式还是 return；2026-10-16 无提示复测",
+    "occurrences": 6,
+    "latest_evidence": "ShippingProcessor 首次用 System.out.print 输出正确物流文本但仍 return 空字符串；指出输出与返回不同后修正，并在退款迁移中独立拼接 getter 结果直接返回",
+    "repair_training": "看到非 void 方法时先确认最终 return 的值；调用 getter 后明确结果用于局部变量、表达式还是 return；2026-10-16 无提示复测",
     "evidence_scope": "learner",
     "extensions": {}
   },

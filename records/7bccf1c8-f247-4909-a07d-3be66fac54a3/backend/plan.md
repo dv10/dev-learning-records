@@ -178,3 +178,13 @@
 - 理解 `groupId` 表示组织或项目家族、`artifactId` 表示具体模块；Maven 坐标与 Java package 不能互相推断。
 - 最终 `mvn clean test` 执行 29 个测试全部通过；依赖树显示 JUnit 为 `test`，Lang3、Collections4、Codec 为 `compile`。
 - scope 判断出现独立迁移证据，但完整坐标仍需提示；2026-10-18 复测时同时检查版本属性、坐标和 scope。
+
+### Day 12 完成记录（2026-10-15）
+
+- 完成物流业务的“普通参数 → `ShippingRequest` → `ShippingService` → `ShippingResult` → 字符串返回值”调用链。
+- 首次把正确文本写入 `System.out.print`，但方法仍 `return ""`；讲清控制台输出和方法返回值是两条不同的数据去向后修正。
+- 迁移到退款业务后，独立创建 `RefundRequest` 与 `RefundService`，调用 `createRefund` 接收 `RefundResult`，并拼接两个 getter 的返回值。
+- 物流与退款共 4 个目标测试全部通过；IntelliJ 的 Maven classpath 未刷新时，使用 Maven 命令确认依赖和测试本身正常，再通过重新加载 Maven 项目修复编辑器运行。
+- 当前结论为“提示下会做并可即时迁移”；调用链迁移已通过，但返回值契约因首次复测仍需完整答案提示，安排 2026-10-16 再测。
+- 本课程按 90 分钟内容块设计，实际活跃学习时长未计时，不记录为已学满 90 分钟。
+- 下一步：2026-10-16 无提示复测跨包对象创建与 getter 返回值，再完成第 3 周组合构建。
