@@ -6,8 +6,8 @@
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
     "occurrences": 6,
-    "latest_evidence": "ShippingProcessor 首次用 System.out.print 输出正确物流文本但仍 return 空字符串；指出输出与返回不同后修正，并在退款迁移中独立拼接 getter 结果直接返回",
-    "repair_training": "看到非 void 方法时先确认最终 return 的值；调用 getter 后明确结果用于局部变量、表达式还是 return；2026-10-16 无提示复测",
+    "latest_evidence": "2026-10-16 延迟复测中无提示把两个同名对象的 getter 结果直接用于 return；迁移到 int 数量业务后仍保持正确返回流向",
+    "repair_training": "对象与 getter 返回值已通过延迟复测和即时迁移；后续在 service 与 DTO 组合中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -102,8 +102,8 @@
     "pattern": "使用全限定类名创建对象时遗漏 new",
     "type": "operation",
     "occurrences": 1,
-    "latest_evidence": "ImportReview 首次写成 day9.review.payment.Notice()；提示后改为 new day9.review.payment.Notice()",
-    "repair_training": "把对象创建固定识别为 类型 变量 = new 类型(参数)；2026-10-16 结合返回值复测",
+    "latest_evidence": "2026-10-16 延迟复测中连续两次正确使用 new 创建全限定类名对象，并区分两个不同包中的同名类型",
+    "repair_training": "全限定类名对象创建已通过延迟复测和即时迁移；后续在跨包协作中自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },

@@ -2,37 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-15T10:44:21Z",
+  "updated_at": "2026-10-16T08:49:18Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "提示下会做并可即时迁移（service 调用链首次将结果打印后返回空字符串；讲清输出与返回的区别后，在退款业务中独立完成 Request → Service → Result）",
+  "mastery_level": "独立完成并通过即时迁移（无提示使用 import 与全限定类名创建两个同名对象，并把 getter 结果用于方法返回值；迁移仅有一个字符串格式机械错误）",
   "current_cycle": "2026-10-12--cycle-3",
-  "current_day": 12,
-  "strongest_evidence": "退款迁移中独立创建 RefundRequest 和 RefundService，调用 createRefund 接收 RefundResult，并将两个 getter 结果拼接返回；与物流调用链共 4 个测试全部通过",
-  "key_gap": "调用结果首次仍出现 print 正确内容但 return 空字符串，方法返回契约需延迟复测；第三方依赖坐标和 JUnit 结构仍待复测",
-  "next_task": "2026-10-16：无提示跨包创建对象，并把 getter 结果用于当前方法返回值，再完成一次组合构建",
-  "next_review_at": "2026-10-16",
+  "current_day": 13,
+  "strongest_evidence": "ReferenceSummary 延迟复测中无提示正确使用 import 与全限定类名创建两个同名对象并直接返回 getter 组合值；RecordReport 换成 int 数量后核心逻辑再次独立正确，完整构建 37 个测试通过",
+  "key_gap": "JUnit 测试方法结构与异常断言仍待延迟复测；第三方 Maven 坐标和 POM 父节点仍需无提示验证",
+  "next_task": "2026-10-17：无提示在新业务中编写普通、边界和异常 JUnit 测试，并完成 clean test",
+  "next_review_at": "2026-10-17",
   "pending_reviews": [
-    "2026-10-16：无提示使用全限定类名 new 对象，并把 getter 结果用于当前方法返回值",
     "2026-10-17：无提示在不同业务中编写普通、边界和异常 JUnit 测试",
     "2026-10-18：无提示声明 Maven 版本属性，并把 scope 放在正确的 dependency 中",
     "2026-10-19：无提示选择 test/package 阶段并验证 JAR 产物"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "2026-10-16 先无提示复测对象创建与 getter 返回值，再进入第 3 周组合构建",
-  "last_session_at": "2026-10-15T10:44:21Z",
+  "recommended_resume_action": "2026-10-17 先无提示建立 JUnit 测试方法结构，再覆盖普通、边界和异常输入",
+  "last_session_at": "2026-10-16T08:49:18Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.65,
-    "transfer_pass_rate": 0.8,
-    "delayed_review_pass_rate": 0.64,
+    "independent_completion_rate": 0.68,
+    "transfer_pass_rate": 0.83,
+    "delayed_review_pass_rate": 0.69,
     "highest_prompt_level": 4,
-    "evidence_count": 19
+    "evidence_count": 21
   },
   "extensions": {
     "knowledge_gap": "JUnit 测试方法结构在延迟后需完整提示；POM 标签父节点和 Maven 坐标仍需间隔复测，scope 判断已有迁移证据",
     "operation_gap": "Commons Codec 坐标首次出现版本漏写和 groupId 套用相邻依赖；IDE 未刷新 Maven 时能在指导下用 Maven 命令区分代码问题与编辑器 classpath 问题",
-    "judgment_gap": "ShippingProcessor 首次用 print 输出正确文本但仍返回空字符串；明确方法返回契约后修正",
-    "transfer_gap": "service 调用链已迁移到退款业务并独立通过；返回值契约仍需 2026-10-16 延迟复测，Maven 坐标需 2026-10-18 复测",
+    "judgment_gap": "对象创建与 getter 返回值已于 2026-10-16 通过延迟复测；异常测试的数据选择与消息覆盖仍待 2026-10-17 复测",
+    "transfer_gap": "同名类、全限定类名、对象创建和 getter 返回已迁移到 int 数量业务；仅字符串固定格式漏写一个等号，Maven 坐标仍需 2026-10-18 复测",
     "pressure_gap": "未测量"
   }
 }
