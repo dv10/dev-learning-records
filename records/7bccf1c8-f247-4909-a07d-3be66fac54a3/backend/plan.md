@@ -231,3 +231,14 @@
 - 原 10 月 22 日接口与 10 月 23 日构造器组装合并到 10 月 21 日，以“手动依赖注入”这一核心成果验收。
 - 原 10 月 25 日休息或补齐安排废弃，新增 Spring Boot POST API 与 DTO。
 - 合并只适用于强关联内容；如果当天核心验收未通过，未完成部分顺延，不以延长时间为由记录为掌握。
+
+### Day 15 完成记录（2026-10-20）
+
+- 为 Commons Text 正确声明 `commons-text.version=1.12.0`，并在同一个 dependency 中配置 `org.apache.commons:commons-text`；未写 test scope，依赖树显示 `1.12.0:compile`。
+- 依次完成 `mvn clean test`、依赖树检查、`mvn package` 和 `jar tf`；明确 test 不生成 JAR，package 会经过编译和测试后生成 JAR。
+- 理解普通 JAR 只包含项目生产类，不包含测试类和第三方依赖；为后续理解 Spring Boot 可执行 JAR 的 `BOOT-INF/lib` 建立对照。
+- 即时迁移到 Commons Math：在未给完整 XML 的情况下，独立写出版本属性和 `org.apache.commons:commons-math3:3.6.1` 生产依赖，使用 `mvn clean package` 一次完成完整构建。
+- 独立把依赖树命令改写为 Commons Math 坐标，结果显示 `3.6.1:compile`；JAR 同时包含 `ShipmentLabelFormatter.class` 与 `OrderAmountStatistics.class`。
+- 最终编译 84 个生产源文件和 21 个测试源文件，执行 45 个测试，Failures 0、Errors 0；Maven POM 父节点、完整坐标、scope 和生命周期达到“延迟复测通过并可即时迁移”。
+- 编辑器旧缓冲区曾覆盖教练新加的 TODO 注释，经磁盘时间证据确认后重新补回；该工具状态问题不计为学习者错误。
+- 下一步：2026-10-21 学习接口、实现类和构造器组装，完成 Spring 依赖注入前的手动依赖模型。

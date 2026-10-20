@@ -2,9 +2,9 @@
   "schema_version": 1,
   "archive_type": "dev-learning-coach-records",
   "record_schema_version": 3,
-  "generated_at": "2026-10-20T02:20:10Z",
-  "archive_revision": "2026-10-20T02-20-10Z--6401fea07d4e",
-  "remote_revision": "50ffc3521a3d4179ee68603da587ed0013eb8daf",
+  "generated_at": "2026-10-20T07:20:13Z",
+  "archive_revision": "2026-10-20T07-20-13Z--d4ec5d34e722",
+  "remote_revision": "469c6366300f9a18e26843d2c11fca76ab98e6b3",
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
   "files": [
@@ -17,22 +17,22 @@
     },
     {
       "path": "state.json",
-      "size": 2593,
-      "sha256": "9c08bc1d974962262489a92dea2f6fbb561a36333a52b2146189c3a724f16640",
+      "size": 2605,
+      "sha256": "93dcb87f3ed799fb2536bbfb26068c411723f37eda314d112b06191819b92083",
       "kind": "state",
       "immutable": false
     },
     {
       "path": "plan.md",
-      "size": 20616,
-      "sha256": "4664b136ca5f0513053d7d381a89bf7042c9d0c6fcf85c0ac14ef13cb9c32efd",
+      "size": 22052,
+      "sha256": "c5b1f68bca2f93fbd3170d2ffd3af66fa85065ace835c82c8925adbf3c760fb3",
       "kind": "plan",
       "immutable": false
     },
     {
       "path": "error-patterns.json",
-      "size": 8015,
-      "sha256": "f3f2b16f74aa745db4fe528d126e4fc39770967b27a8d3a2286727857b33e1c6",
+      "size": 7983,
+      "sha256": "1119a356ef0f48a440644f20dd08876f2e30f92463670e4f51f7589c7f127659",
       "kind": "error_patterns",
       "immutable": false
     },
@@ -145,6 +145,13 @@
       "path": "sessions/2026-10-19T03-32-41Z--58d256c7-a495-4239-a5b8-b41e007f1934.md",
       "size": 3099,
       "sha256": "820fd2f044cd2d2dbfec2d8237898bd3ec993282cf66644e437fe4b416b3871a",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-10-20T07-19-41Z--27d5c798-0cf7-41f1-97ce-359b3eed9674.md",
+      "size": 3025,
+      "sha256": "21b043bcbf0811c7bac8e1c1779965b4118052c8b66f18f6b392e524a1f475e5",
       "kind": "session",
       "immutable": true
     }

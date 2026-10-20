@@ -134,24 +134,24 @@
   {
     "pattern_id": "maven-pom-context-001",
     "first_date": "2026-10-14",
-    "last_date": "2026-10-14",
+    "last_date": "2026-10-20",
     "pattern": "只关注 POM 标签文本，未同时确认标签所在父节点，导致版本属性命名或 dependency scope 不生效",
     "type": "knowledge",
     "occurrences": 2,
-    "latest_evidence": "把 <scope>test</scope> 放在 <properties> 后构建仍成功；说明父节点含义后能够识别它只是自定义属性，并恢复正确依赖配置",
-    "repair_training": "修改 POM 时同时定位父节点：版本键定义在 properties，依赖的 groupId/artifactId/version/scope 定义在同一个 dependency；2026-10-18 无提示复测",
+    "latest_evidence": "Commons Text 与 Commons Math 两次配置中均把版本键放在 properties，把完整坐标放在同一个 dependency，并保持生产依赖默认 compile；依赖树验证配置真实生效",
+    "repair_training": "POM 父节点和 scope 已通过延迟复测与即时迁移；2026-10-27 用新生产库再次自然复查",
     "evidence_scope": "learner",
     "extensions": {}
   },
   {
     "pattern_id": "maven-coordinate-copy-001",
     "first_date": "2026-10-14",
-    "last_date": "2026-10-14",
+    "last_date": "2026-10-20",
     "pattern": "添加第三方依赖时未把 groupId、artifactId 和 version 作为一个完整坐标精确复制",
     "type": "operation",
     "occurrences": 2,
-    "latest_evidence": "Commons Codec 首次把版本 1.17.1 写成 1.7.1，并把 groupId commons-codec 写成 org.apache.commons；定位后修正并通过 29 个测试",
-    "repair_training": "添加依赖后逐项对照 groupId、artifactId、version，再用 dependency:tree 核对 Maven 实际解析的完整坐标；2026-10-18 无提示复测",
+    "latest_evidence": "Commons Text 与 Commons Math 的 groupId、artifactId 和 version 连续配置正确；迁移时未提供完整 XML，学习者仍正确复用结构并用 dependency:tree 验证 `3.6.1:compile`",
+    "repair_training": "完整坐标已通过延迟复测与即时迁移；2026-10-27 更换新库后再次无提示复查",
     "evidence_scope": "learner",
     "extensions": {}
   }

@@ -2,35 +2,35 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-20T02:19:54Z",
+  "updated_at": "2026-10-20T07:19:41Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "JUnit 测试结构与异常断言可独立完成并迁移；边界覆盖在定位提示后补齐",
+  "mastery_level": "Maven 版本属性、完整坐标、默认 compile scope 与 clean/test/package/JAR 验证已通过延迟复测和即时迁移",
   "current_cycle": "2026-10-19--cycle-4",
-  "current_day": 14,
-  "strongest_evidence": "ParkingFeeCalculator 延迟复测中独立写出普通、精确边界和异常类型与消息测试；StorageFeeCalculator 迁移后能独立完成测试结构与异常断言，并在一次覆盖提示后补齐 7 天精确边界；完整构建 43 个测试通过",
-  "key_gap": "会写能通过的 JUnit 测试，但首次迁移会用两个普通样本替代精确边界，尚未稳定做到从业务规则主动推导测试矩阵；Maven 坐标、POM 父节点与生命周期仍待延迟复测",
-  "next_task": "2026-10-20：完成从 Maven 依赖配置到 clean/test/package/JAR 验证的一体化构建任务",
-  "next_review_at": "2026-10-20",
+  "current_day": 15,
+  "strongest_evidence": "先后为 Commons Text 与 Commons Math 正确声明版本属性和完整生产依赖，两个坐标均解析为 compile；独立把 dependency:tree 查询迁移到 Commons Math，并用 clean package 生成 JAR，45 个测试全部通过且两个 Day15 生产类均进入 JAR",
+  "key_gap": "JUnit 精确边界仍需 2026-10-24 无提示复测；接口、实现类与构造器依赖组装尚未建立现场证据",
+  "next_task": "2026-10-21：定义 service 接口与实现类，并通过构造器把接口注入调用方，完成手动依赖注入",
+  "next_review_at": "2026-10-24",
   "pending_reviews": [
-    "2026-10-20：无提示声明 Maven 版本属性、核对完整坐标、配置 scope，并选择 test/package 阶段验证 JAR",
-    "2026-10-24：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试"
+    "2026-10-24：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
+    "2026-10-27：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "2026-10-20 先讲解完整 Maven 构建链，再无提示完成依赖配置、clean test、package、依赖树与 JAR 检查",
-  "last_session_at": "2026-10-19T03:32:41Z",
+  "recommended_resume_action": "2026-10-21 先讲清接口作为契约、implements 与构造器依赖，再完成一条手动依赖注入调用链",
+  "last_session_at": "2026-10-20T07:19:41Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.70,
-    "transfer_pass_rate": 0.84,
-    "delayed_review_pass_rate": 0.73,
+    "independent_completion_rate": 0.73,
+    "transfer_pass_rate": 0.86,
+    "delayed_review_pass_rate": 0.77,
     "highest_prompt_level": 4,
-    "evidence_count": 23
+    "evidence_count": 26
   },
   "extensions": {
-    "knowledge_gap": "JUnit 测试方法结构与异常断言已通过延迟复测；POM 标签父节点和 Maven 坐标仍需间隔复测，scope 判断已有迁移证据",
-    "operation_gap": "Commons Codec 坐标首次出现版本漏写和 groupId 套用相邻依赖；IDE 未刷新 Maven 时能在指导下用 Maven 命令区分代码问题与编辑器 classpath 问题",
+    "knowledge_gap": "JUnit 测试方法结构与异常断言已通过延迟复测；Maven POM 父节点、坐标、scope 与生命周期已通过延迟复测和即时迁移；下一项是接口与构造器依赖",
+    "operation_gap": "能独立改写 dependency:tree 过滤坐标并正确运行 clean test、package、jar tf；编辑器旧缓冲区曾覆盖教练新增注释，但未影响学习者核心配置",
     "judgment_gap": "异常类型与消息已能独立覆盖；迁移时仍可能用普通样本替代规则切换点，需要先从规则主动列出精确边界",
-    "transfer_gap": "JUnit 结构与异常断言已迁移到仓储计费业务；精确边界 7 首次遗漏，经覆盖提示后补齐，Maven 坐标仍需 2026-10-20 复测",
+    "transfer_gap": "Maven 配置从 Commons Text 迁移到 Commons Math 时，版本属性、完整坐标、默认 compile 与构建命令均独立正确；JUnit 精确边界仍需 2026-10-24 复测",
     "pressure_gap": "未测量"
   }
 }
