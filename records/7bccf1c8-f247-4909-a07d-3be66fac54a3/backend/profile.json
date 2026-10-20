@@ -6,7 +6,7 @@
   "language": "zh-CN",
   "timezone": "Asia/Shanghai",
   "created_at": "2026-09-08T11:00:49Z",
-  "updated_at": "2026-09-16T02:15:06Z",
+  "updated_at": "2026-10-20T02:19:54Z",
   "goal": {
     "primary": "能够独立开发 Spring Boot 项目",
     "cycle_days": 90,
@@ -43,7 +43,7 @@
   },
   "constraints": {
     "roadmap": "90 天先建立主要知识地图，同时以可运行作品而非看过内容作为进度证据",
-    "schedule_notes": "每周 5 天，每天 90 分钟；7 天为滚动计划窗口",
+    "schedule_notes": "每天 90 分钟作为基础学习块，不再作为上限；允许合并关联主题并延长到当天可验收成果完成，7 天为滚动计划窗口",
     "platform_notes": "项目使用 Maven 3.9.16，pom.xml 编译目标为 Java 11；命令行 java 为 JDK 11，Maven 当前运行在 Java 26",
     "items": [
       "无目标岗位或公司版本限制",
