@@ -2,12 +2,12 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-10-15",
+    "last_date": "2026-10-27",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
-    "occurrences": 6,
-    "latest_evidence": "2026-10-16 延迟复测中无提示把两个同名对象的 getter 结果直接用于 return；迁移到 int 数量业务后仍保持正确返回流向",
-    "repair_training": "对象与 getter 返回值已通过延迟复测和即时迁移；后续在 service 与 DTO 组合中自然复查",
+    "occurrences": 7,
+    "latest_evidence": "消息通知迁移中首次只调用 messageSender.send(message) 而未 return，编译报缺少返回语句；定位数据流后自行补齐并通过测试",
+    "repair_training": "2026-10-28 在新的 service 调用链中自然复查：被调用方法产生结果后，声明非 void 的上层方法必须明确 return",
     "evidence_scope": "learner",
     "extensions": {}
   },

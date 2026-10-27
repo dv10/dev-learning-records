@@ -2,35 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-20T07:19:41Z",
+  "updated_at": "2026-10-27T06:13:57Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "Maven 版本属性、完整坐标、默认 compile scope 与 clean/test/package/JAR 验证已通过延迟复测和即时迁移",
+  "mastery_level": "接口契约、多个实现和构造器注入已在讲解后完成，并迁移到消息通知场景",
   "current_cycle": "2026-10-19--cycle-4",
-  "current_day": 15,
-  "strongest_evidence": "先后为 Commons Text 与 Commons Math 正确声明版本属性和完整生产依赖，两个坐标均解析为 compile；独立把 dependency:tree 查询迁移到 Commons Math，并用 clean package 生成 JAR，45 个测试全部通过且两个 Day15 生产类均进入 JAR",
-  "key_gap": "JUnit 精确边界仍需 2026-10-24 无提示复测；接口、实现类与构造器依赖组装尚未建立现场证据",
-  "next_task": "2026-10-21：定义 service 接口与实现类，并通过构造器把接口注入调用方，完成手动依赖注入",
-  "next_review_at": "2026-10-24",
+  "current_day": 16,
+  "strongest_evidence": "完成 ShippingFeePolicy 的标准与包邮实现、ShippingQuoteService 构造器注入和接口转交调用；随后迁移到 MessageSender、邮件/短信实现和 NotificationService，三组测试全部通过",
+  "key_gap": "迁移题的 notify 首次调用 send 后未 return，方法返回值流向仍需自然复查；JUnit 精确边界和 Maven 新依赖复测已到期",
+  "next_task": "开始下一学习周期前先展示并确认新的 7 天计划；确认后先完成到期的 JUnit 边界与 Maven 短复测，再进入 Spring Boot 启动项目",
+  "next_review_at": "2026-10-28",
   "pending_reviews": [
-    "2026-10-24：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
-    "2026-10-27：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR"
+    "已到期：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
+    "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
+    "2026-10-28：在新 service 调用链中自然复查方法返回值是否继续 return 给上层"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "2026-10-21 先讲清接口作为契约、implements 与构造器依赖，再完成一条手动依赖注入调用链",
-  "last_session_at": "2026-10-20T07:19:41Z",
+  "recommended_resume_action": "先展示并确认下一 7 天周期计划，再用短任务补齐两项到期复测，然后进入 Spring Boot",
+  "last_session_at": "2026-10-27T06:13:57Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.73,
-    "transfer_pass_rate": 0.86,
+    "independent_completion_rate": 0.74,
+    "transfer_pass_rate": 0.87,
     "delayed_review_pass_rate": 0.77,
     "highest_prompt_level": 4,
-    "evidence_count": 26
+    "evidence_count": 27
   },
   "extensions": {
-    "knowledge_gap": "JUnit 测试方法结构与异常断言已通过延迟复测；Maven POM 父节点、坐标、scope 与生命周期已通过延迟复测和即时迁移；下一项是接口与构造器依赖",
-    "operation_gap": "能独立改写 dependency:tree 过滤坐标并正确运行 clean test、package、jar tf；编辑器旧缓冲区曾覆盖教练新增注释，但未影响学习者核心配置",
-    "judgment_gap": "异常类型与消息已能独立覆盖；迁移时仍可能用普通样本替代规则切换点，需要先从规则主动列出精确边界",
-    "transfer_gap": "Maven 配置从 Commons Text 迁移到 Commons Math 时，版本属性、完整坐标、默认 compile 与构建命令均独立正确；JUnit 精确边界仍需 2026-10-24 复测",
+    "knowledge_gap": "接口只声明契约、实现类用 implements/@Override、调用方通过构造器接收接口均已建立现场证据；下一步连接到 Spring 容器自动组装",
+    "operation_gap": "两个业务场景的接口、实现类与构造器注入均可编译测试；机械 TODO、缩进和方法后多余分号由教练集中清理",
+    "judgment_gap": "消息迁移中首次调用 send 后未 return，说明产生结果与向上返回的流向仍需自然复查；JUnit 精确边界复测已到期",
+    "transfer_gap": "从物流计费迁移到邮件/短信通知成功；接口、多实现和构造器注入结构保持正确，最终三组测试通过",
     "pressure_gap": "未测量"
   }
 }
