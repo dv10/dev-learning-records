@@ -2,36 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-30T07:25:17Z",
+  "updated_at": "2026-10-30T08:20:16Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "Spring Boot 启动类、应用上下文、内置 Tomcat 与可执行 JAR 已在 Java 8 + Boot 2.2.4 环境中完成现场验证",
+  "mastery_level": "Spring Bean、组件扫描与单构造器自动注入已独立迁移到第二个业务场景，接口调用和返回值流向正确",
   "current_cycle": "2026-10-27--cycle-5",
-  "current_day": 17,
-  "strongest_evidence": "完成 OrderApplication 的 @SpringBootApplication 与 SpringApplication.run；Java 8 下上下文测试通过，源码和 17MB 可执行 JAR 两种方式均启动 Tomcat 8081，JAR 清单与 BOOT-INF 结构验证正确",
-  "key_gap": "目前能按讲解启动 Spring Boot，但 Spring 容器如何发现、创建和注入业务对象尚未建立编码证据；JUnit 与 Maven 两项到期复测仍待完成",
-  "next_task": "Day 18：先讲 Spring Bean、@Service、组件扫描和构造器自动注入，再把 Day 16 的手动组装改为 Spring 容器组装",
-  "next_review_at": "2026-10-31",
+  "current_day": 18,
+  "strongest_evidence": "为订单编号与支付流水两个场景正确标记实现类和业务类为 @Service；通过接口类型构造器自动注入，支付迁移无纠错完成；5 个 Spring 测试全部通过",
+  "key_gap": "Spring 自动注入已有即时迁移证据，但尚未连接 HTTP Controller；JUnit 精确边界和 Maven 新依赖两项到期复测仍待完成",
+  "next_task": "Day 19：先讲 @RestController、@GetMapping 与 HTTP 请求映射，再完成 Controller → Service → 接口实现的第一条 GET 调用链",
+  "next_review_at": "2026-11-02",
   "pending_reviews": [
     "已到期：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
-    "2026-10-31：在 Spring service 调用链中自然复查方法返回值是否继续 return 给上层"
+    "2026-11-02：在新 Spring Bean 场景中无提示复查 @Service 与单构造器注入"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 18 先从 Day 16 的手动 new/构造器注入回忆开始，再讲 Spring Bean 与自动构造器注入",
-  "last_session_at": "2026-10-30T07:25:17Z",
+  "recommended_resume_action": "Day 19 先讲 HTTP 请求、Controller 和 Service 的职责边界，再创建 GET API 文件与测试",
+  "last_session_at": "2026-10-30T08:20:16Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.74,
-    "transfer_pass_rate": 0.87,
+    "independent_completion_rate": 0.76,
+    "transfer_pass_rate": 0.88,
     "delayed_review_pass_rate": 0.77,
     "highest_prompt_level": 4,
-    "evidence_count": 28
+    "evidence_count": 29
   },
   "extensions": {
-    "knowledge_gap": "理解启动类、应用上下文和内置 Tomcat 的整体作用；下一步需要建立 Bean、组件扫描和 Spring 自动构造器注入的代码证据",
-    "operation_gap": "能按指定 Java 8 环境运行 test、spring-boot:run、clean package 和 java -jar；JAR 启动命令首次失败源于教练给出的变量展开顺序错误，不计为学习者问题",
-    "judgment_gap": "能够把根路径 404 判断为服务器已接收请求但尚无 Controller；JUnit 精确边界复测仍到期",
-    "transfer_gap": "同一应用通过 Maven 插件和可执行 JAR 两条路径启动成功；尚未验证 Spring 自动注入业务对象",
+    "knowledge_gap": "理解 Bean 是由 Spring 创建管理的普通对象，@Service 使实现类和业务类进入容器，单构造器无需额外 @Autowired；下一步连接 Controller",
+    "operation_gap": "订单与支付两个场景的 @Service、final 接口字段、构造器赋值和方法转交均正确；完成后的 TODO 由教练机械清理",
+    "judgment_gap": "能够区分测试字段 @Autowired 与生产类构造器注入；JUnit 精确边界复测仍到期",
+    "transfer_gap": "从订单编号迁移到支付流水号时，无纠错完成 Bean 标记、接口注入和返回值转交，5 个测试全绿",
     "pressure_gap": "未测量"
   }
 }

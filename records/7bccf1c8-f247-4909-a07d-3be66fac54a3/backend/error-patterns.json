@@ -6,8 +6,8 @@
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
     "occurrences": 7,
-    "latest_evidence": "消息通知迁移中首次只调用 messageSender.send(message) 而未 return，编译报缺少返回语句；定位数据流后自行补齐并通过测试",
-    "repair_training": "2026-10-28 在新的 service 调用链中自然复查：被调用方法产生结果后，声明非 void 的上层方法必须明确 return",
+    "latest_evidence": "2026-10-30 在订单编号和支付流水两个 Spring service 中连续正确 return 接口方法结果；支付迁移无纠错完成，返回值流向自然复查通过",
+    "repair_training": "返回值流向已通过 Spring service 自然复查；后续在 Controller → Service 调用链中继续自然观察",
     "evidence_scope": "learner",
     "extensions": {}
   },

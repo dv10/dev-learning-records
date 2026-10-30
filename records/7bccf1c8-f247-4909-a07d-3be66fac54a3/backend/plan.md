@@ -277,3 +277,13 @@
 - 使用 Java 8 执行 `java -jar` 再次成功启动；进程命令、端口监听与 HTTP 404 均已现场验证。
 - 首次 JAR 启动命令因教练把临时 `JAVA_HOME` 赋值和变量展开写在同一命令而解析为 `/bin/java`，属于教练命令错误，不计入学习者证据。
 - 下一步：Day 18 学习 Spring Bean、`@Service`、组件扫描与构造器自动注入，把 Day 16 的手动组装连接到 Spring 容器。
+
+### Day 18 完成记录（2026-10-30）
+
+- 从 Day 16 手动 `new` 和构造器传参切入，理解 Bean 是由 Spring 创建、保存和管理的普通 Java 对象。
+- 学习 `@Service`、启动类根包向下的组件扫描，以及单构造器无需额外 `@Autowired` 的自动注入模型。
+- 在订单编号场景中，正确为实现类与业务类添加 `@Service`；学习者超出单步要求，主动完成构造器字段赋值和接口返回值转交。
+- 即时迁移到支付流水号场景，无纠错完成两个 Bean、接口类型构造器注入和 `PAY-2001` 返回链路。
+- Spring Boot 项目共 5 个测试全部通过，Failures 0、Errors 0；测试成功证明业务对象来自容器而非手动 `new`。
+- Day 16 曾出现的“调用方法但未 return”在订单和支付两个 Spring service 中连续正确，返回值流向自然复查通过。
+- 下一步：Day 19 学习 `@RestController`、`@GetMapping`，完成 HTTP → Controller → Service → 实现类的 GET 调用链。
