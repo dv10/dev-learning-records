@@ -2,30 +2,30 @@
   "schema_version": 1,
   "archive_type": "dev-learning-coach-records",
   "record_schema_version": 3,
-  "generated_at": "2026-10-27T06:14:19Z",
-  "archive_revision": "2026-10-27T06-14-19Z--9bd446df2d01",
+  "generated_at": "2026-10-30T07:25:37Z",
+  "archive_revision": "2026-10-30T07-25-37Z--9fb4bca2450c",
   "remote_revision": null,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
   "files": [
     {
       "path": "profile.json",
-      "size": 2533,
-      "sha256": "1904138352882c78ef8dc599d1475683d3d125d6e4ac2eb1ff0fb3f2397706f3",
+      "size": 2776,
+      "sha256": "6c692bab281d56297622957062ed8668562d8db768c4a9e427dadb26e22c4635",
       "kind": "profile",
       "immutable": false
     },
     {
       "path": "state.json",
-      "size": 2588,
-      "sha256": "c5623383886901dbb5e86a57019317e45abffe099f5764f49edff6401b590a9e",
+      "size": 2606,
+      "sha256": "536f6766382b68020e3834b2a55c7ff9ac5ba371d46247bc7465f7f877dea017",
       "kind": "state",
       "immutable": false
     },
     {
       "path": "plan.md",
-      "size": 23044,
-      "sha256": "cf25a652ae90632769f745f0a2f26f076659231c32006d3729f67e1ec9399e14",
+      "size": 25335,
+      "sha256": "143337ac370183bcc833c72adad1276204d8d364277f716dc8db9a66566be637",
       "kind": "plan",
       "immutable": false
     },
@@ -159,6 +159,13 @@
       "path": "sessions/2026-10-27T06-13-57Z--02d09003-fae3-4b2b-8b7d-ba892716c976.md",
       "size": 2901,
       "sha256": "e8f5d865f84f339a65d6a6d394008b0e32e7d741fcbdcebd8d8cd7eb262cfff7",
+      "kind": "session",
+      "immutable": true
+    },
+    {
+      "path": "sessions/2026-10-30T07-25-17Z--e20a739a-d5f3-4237-885c-5fcc594b6987.md",
+      "size": 2704,
+      "sha256": "092fe6a285b85b9af6eadc10b9d541c6657019f57534998343e1b70dc4a7e5ac",
       "kind": "session",
       "immutable": true
     }

@@ -252,3 +252,28 @@
 - 最初接口方法体错误发生在讲解顺序不足之后，不计入学习者错误；补充完整讲解后接口声明正确。
 - 原定 JUnit 精确边界与 Maven 新依赖复测已到期，进入下一周期前置短复测。
 - 下一步：开启新周期前先展示并确认新的 7 天计划，确认后再进入 Spring Boot。
+
+## 第 5 个 7 天周期（Day 17 至 Day 23，2026-10-27 确认）
+
+周期成果：把手动“接口 + 构造器注入”连接到 Spring 容器，完成一个可启动、可测试并包含 GET、参数和 POST DTO 的分层 Spring Boot API。
+
+- Day 17：Spring Boot 项目结构、启动类、`@SpringBootApplication` 与应用启动。
+- Day 18：Spring 容器、`@Service`、组件扫描和构造器自动注入。
+- Day 19：`@RestController`、`@GetMapping` 与 Controller → Service 调用链。
+- Day 20：`@PathVariable`、`@RequestParam` 与输入边界；穿插 JUnit 精确边界复测。
+- Day 21：`@PostMapping`、`@RequestBody`、请求 DTO 与响应 DTO。
+- Day 22：休息或只补齐本周期未通过内容。
+- Day 23：组合验证与周期复盘；运行测试、启动服务、请求 API，并完成 Maven 依赖和打包短复测。
+
+每天以 90 分钟为基础学习块，可延长；继续执行“先讲再练”，所有演示、测试与目录由教练创建，学习者只完成当天唯一核心行为。
+
+### Day 17 完成记录（2026-10-30）
+
+- 检查真实项目 `mkt-user` 的继承链，确认有效环境为 Java 8、`yq-parent` 和 Spring Boot `2.2.4.RELEASE`；按用户要求，学习项目与该版本保持一致。
+- 创建独立项目 `spring-boot-order-api`，保留既有 Java 基础项目不变；讲解启动类、Spring 容器、内置 Tomcat、starter、配置文件与 Maven 插件的职责。
+- 学习者正确启用 `@SpringBootApplication` 与 `SpringApplication.run`；Java 8 下应用上下文测试通过。
+- `mvn spring-boot:run` 成功启动 8081；根路径返回 404，能够作为“Tomcat 已接收请求但尚无 Controller”的证据。
+- `mvn clean package` 生成约 17MB 的可执行 JAR；验证 `BOOT-INF/classes`、`BOOT-INF/lib`、`JarLauncher` 与 `Start-Class`。
+- 使用 Java 8 执行 `java -jar` 再次成功启动；进程命令、端口监听与 HTTP 404 均已现场验证。
+- 首次 JAR 启动命令因教练把临时 `JAVA_HOME` 赋值和变量展开写在同一命令而解析为 `/bin/java`，属于教练命令错误，不计入学习者证据。
+- 下一步：Day 18 学习 Spring Bean、`@Service`、组件扫描与构造器自动注入，把 Day 16 的手动组装连接到 Spring 容器。

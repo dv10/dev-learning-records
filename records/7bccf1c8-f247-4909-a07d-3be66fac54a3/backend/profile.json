@@ -30,7 +30,8 @@
       }
     ],
     "target_environment": [
-      "Java 11",
+      "Java 11（既有基础练习项目）",
+      "Java 8 + Spring Boot 2.2.4.RELEASE（与 mkt-user 对齐）",
       "Maven"
     ],
     "production_experience": null
@@ -44,7 +45,7 @@
   "constraints": {
     "roadmap": "90 天先建立主要知识地图，同时以可运行作品而非看过内容作为进度证据",
     "schedule_notes": "每天 90 分钟作为基础学习块，不再作为上限；允许合并关联主题并延长到当天可验收成果完成，7 天为滚动计划窗口",
-    "platform_notes": "项目使用 Maven 3.9.16，pom.xml 编译目标为 Java 11；命令行 java 为 JDK 11，Maven 当前运行在 Java 26",
+    "platform_notes": "基础项目编译目标为 Java 11；Spring Boot 学习项目按用户要求与 mkt-user 对齐为 Java 8 + Spring Boot 2.2.4.RELEASE；本机已安装 JDK 8/11，默认 Maven 当前运行在 Java 26，Spring Boot 项目命令需显式设置 Java 8 的 JAVA_HOME",
     "items": [
       "无目标岗位或公司版本限制",
       "不要求学习者手动创建演示文件"

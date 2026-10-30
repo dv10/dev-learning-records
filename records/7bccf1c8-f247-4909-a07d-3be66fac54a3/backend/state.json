@@ -2,36 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-27T06:13:57Z",
+  "updated_at": "2026-10-30T07:25:17Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "接口契约、多个实现和构造器注入已在讲解后完成，并迁移到消息通知场景",
-  "current_cycle": "2026-10-19--cycle-4",
-  "current_day": 16,
-  "strongest_evidence": "完成 ShippingFeePolicy 的标准与包邮实现、ShippingQuoteService 构造器注入和接口转交调用；随后迁移到 MessageSender、邮件/短信实现和 NotificationService，三组测试全部通过",
-  "key_gap": "迁移题的 notify 首次调用 send 后未 return，方法返回值流向仍需自然复查；JUnit 精确边界和 Maven 新依赖复测已到期",
-  "next_task": "开始下一学习周期前先展示并确认新的 7 天计划；确认后先完成到期的 JUnit 边界与 Maven 短复测，再进入 Spring Boot 启动项目",
-  "next_review_at": "2026-10-28",
+  "mastery_level": "Spring Boot 启动类、应用上下文、内置 Tomcat 与可执行 JAR 已在 Java 8 + Boot 2.2.4 环境中完成现场验证",
+  "current_cycle": "2026-10-27--cycle-5",
+  "current_day": 17,
+  "strongest_evidence": "完成 OrderApplication 的 @SpringBootApplication 与 SpringApplication.run；Java 8 下上下文测试通过，源码和 17MB 可执行 JAR 两种方式均启动 Tomcat 8081，JAR 清单与 BOOT-INF 结构验证正确",
+  "key_gap": "目前能按讲解启动 Spring Boot，但 Spring 容器如何发现、创建和注入业务对象尚未建立编码证据；JUnit 与 Maven 两项到期复测仍待完成",
+  "next_task": "Day 18：先讲 Spring Bean、@Service、组件扫描和构造器自动注入，再把 Day 16 的手动组装改为 Spring 容器组装",
+  "next_review_at": "2026-10-31",
   "pending_reviews": [
     "已到期：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
-    "2026-10-28：在新 service 调用链中自然复查方法返回值是否继续 return 给上层"
+    "2026-10-31：在 Spring service 调用链中自然复查方法返回值是否继续 return 给上层"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "先展示并确认下一 7 天周期计划，再用短任务补齐两项到期复测，然后进入 Spring Boot",
-  "last_session_at": "2026-10-27T06:13:57Z",
+  "recommended_resume_action": "Day 18 先从 Day 16 的手动 new/构造器注入回忆开始，再讲 Spring Bean 与自动构造器注入",
+  "last_session_at": "2026-10-30T07:25:17Z",
   "evidence_scope": "learner",
   "metrics": {
     "independent_completion_rate": 0.74,
     "transfer_pass_rate": 0.87,
     "delayed_review_pass_rate": 0.77,
     "highest_prompt_level": 4,
-    "evidence_count": 27
+    "evidence_count": 28
   },
   "extensions": {
-    "knowledge_gap": "接口只声明契约、实现类用 implements/@Override、调用方通过构造器接收接口均已建立现场证据；下一步连接到 Spring 容器自动组装",
-    "operation_gap": "两个业务场景的接口、实现类与构造器注入均可编译测试；机械 TODO、缩进和方法后多余分号由教练集中清理",
-    "judgment_gap": "消息迁移中首次调用 send 后未 return，说明产生结果与向上返回的流向仍需自然复查；JUnit 精确边界复测已到期",
-    "transfer_gap": "从物流计费迁移到邮件/短信通知成功；接口、多实现和构造器注入结构保持正确，最终三组测试通过",
+    "knowledge_gap": "理解启动类、应用上下文和内置 Tomcat 的整体作用；下一步需要建立 Bean、组件扫描和 Spring 自动构造器注入的代码证据",
+    "operation_gap": "能按指定 Java 8 环境运行 test、spring-boot:run、clean package 和 java -jar；JAR 启动命令首次失败源于教练给出的变量展开顺序错误，不计为学习者问题",
+    "judgment_gap": "能够把根路径 404 判断为服务器已接收请求但尚无 Controller；JUnit 精确边界复测仍到期",
+    "transfer_gap": "同一应用通过 Maven 插件和可执行 JAR 两条路径启动成功；尚未验证 Spring 自动注入业务对象",
     "pressure_gap": "未测量"
   }
 }
