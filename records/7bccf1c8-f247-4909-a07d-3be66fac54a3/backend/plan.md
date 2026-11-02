@@ -287,3 +287,13 @@
 - Spring Boot 项目共 5 个测试全部通过，Failures 0、Errors 0；测试成功证明业务对象来自容器而非手动 `new`。
 - Day 16 曾出现的“调用方法但未 return”在订单和支付两个 Spring service 中连续正确，返回值流向自然复查通过。
 - 下一步：Day 19 学习 `@RestController`、`@GetMapping`，完成 HTTP → Controller → Service → 实现类的 GET 调用链。
+
+### Day 19 完成记录（2026-11-02）
+
+- 学习 `@RestController`、`@GetMapping`、Controller 与 Service 的职责边界，以及 `HTTP → Controller → Service → 实现类 → HTTP 响应` 调用链。
+- 订单 GET 接口最终返回 `ORD-1001`；MockMvc 验证 200 与 404，真实启动后 HTTP 请求也验证 200 和正确响应体。
+- 迁移到支付 GET 接口后，首次保留了 HTTP 未提供的 `paymentId` 参数，实际响应为 `PAY-null`；完整模型提示后改为无参方法并调用 `createReference("2001")`。
+- 完整测试共 8 个，Failures 0、Errors 0；支付 Controller 专项测试再次通过。
+- 两个 Controller 均需要多次定位或完整模型才能修复参数、Service 方法名与返回值，因此结论为“完整答案提示后会做”，不记录为独立迁移。
+- Spring Bean 延迟复习中，能解释 `@Service` 和容器管理，但未能说明接口字段最终注入哪个具体实现；顺延至 2026-11-05。
+- 下一步：Day 20 先讲 URL 路径参数、查询参数如何进入 Java 方法，再学习 `@PathVariable`、`@RequestParam` 与输入边界。

@@ -2,12 +2,24 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-10-27",
+    "last_date": "2026-11-02",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
-    "occurrences": 7,
-    "latest_evidence": "2026-10-30 在订单编号和支付流水两个 Spring service 中连续正确 return 接口方法结果；支付迁移无纠错完成，返回值流向自然复查通过",
-    "repair_training": "返回值流向已通过 Spring service 自然复查；后续在 Controller → Service 调用链中继续自然观察",
+    "occurrences": 8,
+    "latest_evidence": "OrderController 首次保存为 return null，HTTP 状态为 200 但响应体为空；经响应返回链定位后改为返回 Service 结果",
+    "repair_training": "每层都检查调用结果是否沿 return 返回给上一层；2026-11-05 在参数化 Controller 中自然复查",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
+    "pattern_id": "controller-service-boundary-001",
+    "first_date": "2026-11-02",
+    "last_date": "2026-11-02",
+    "pattern": "Controller 方法参数来源与 Service 公开方法选择不稳定，容易声明 HTTP 未提供的参数或调用不存在的方法",
+    "type": "judgment",
+    "occurrences": 2,
+    "latest_evidence": "订单与支付 Controller 均先添加了固定 GET 未提供的参数，并尝试调用不存在的 generate 方法；支付接口因此实际返回 PAY-null，完整模型提示后修复",
+    "repair_training": "编码前沿调用地图逐层核对：HTTP 是否提供参数、Controller 方法签名、Service 真实公开方法、传入值和返回值；Day 20 先讲参数来源再练习",
     "evidence_scope": "learner",
     "extensions": {}
   },

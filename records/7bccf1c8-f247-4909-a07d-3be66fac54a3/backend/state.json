@@ -2,36 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-10-30T08:20:16Z",
+  "updated_at": "2026-11-02T10:50:30Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "Spring Bean、组件扫描与单构造器自动注入已独立迁移到第二个业务场景，接口调用和返回值流向正确",
+  "mastery_level": "理解 Controller 是 HTTP 到 Service 的入口；在完整模型提示下能完成固定 GET 调用链，尚未达到独立迁移",
   "current_cycle": "2026-10-27--cycle-5",
-  "current_day": 18,
-  "strongest_evidence": "为订单编号与支付流水两个场景正确标记实现类和业务类为 @Service；通过接口类型构造器自动注入，支付迁移无纠错完成；5 个 Spring 测试全部通过",
-  "key_gap": "Spring 自动注入已有即时迁移证据，但尚未连接 HTTP Controller；JUnit 精确边界和 Maven 新依赖两项到期复测仍待完成",
-  "next_task": "Day 19：先讲 @RestController、@GetMapping 与 HTTP 请求映射，再完成 Controller → Service → 接口实现的第一条 GET 调用链",
-  "next_review_at": "2026-11-02",
+  "current_day": 19,
+  "strongest_evidence": "订单与支付两个 GET 接口最终均正确形成 HTTP → Controller → Service → 实现类调用链；完整测试共 8 个全部通过，订单接口另经真实 HTTP 请求验证返回 200 与 ORD-1001",
+  "key_gap": "Controller 方法签名、固定参数来源和实际 Service 方法名仍依赖完整模型；Spring 按接口注入具体实现的延迟解释未通过；JUnit 精确边界和 Maven 新依赖复测仍待完成",
+  "next_task": "Day 20：先讲 HTTP 路径参数与查询参数从哪里进入 Java，再学习 @PathVariable、@RequestParam 和输入边界",
+  "next_review_at": "2026-11-05",
   "pending_reviews": [
     "已到期：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
-    "2026-11-02：在新 Spring Bean 场景中无提示复查 @Service 与单构造器注入"
+    "2026-11-05：无提示解释接口字段实际注入哪个 @Service 实现，并在新 Controller 中保持构造器 Bean 引用"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 19 先讲 HTTP 请求、Controller 和 Service 的职责边界，再创建 GET API 文件与测试",
-  "last_session_at": "2026-10-30T08:20:16Z",
+  "recommended_resume_action": "Day 20 开始前先用一个请求示例讲清 URL 中路径参数、查询参数与 Java 方法参数的对应关系，再进入编码",
+  "last_session_at": "2026-11-02T10:50:30Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.76,
-    "transfer_pass_rate": 0.88,
-    "delayed_review_pass_rate": 0.77,
+    "independent_completion_rate": 0.72,
+    "transfer_pass_rate": 0.82,
+    "delayed_review_pass_rate": 0.73,
     "highest_prompt_level": 4,
-    "evidence_count": 29
+    "evidence_count": 33
   },
   "extensions": {
-    "knowledge_gap": "理解 Bean 是由 Spring 创建管理的普通对象，@Service 使实现类和业务类进入容器，单构造器无需额外 @Autowired；下一步连接 Controller",
-    "operation_gap": "订单与支付两个场景的 @Service、final 接口字段、构造器赋值和方法转交均正确；完成后的 TODO 由教练机械清理",
-    "judgment_gap": "能够区分测试字段 @Autowired 与生产类构造器注入；JUnit 精确边界复测仍到期",
-    "transfer_gap": "从订单编号迁移到支付流水号时，无纠错完成 Bean 标记、接口注入和返回值转交，5 个测试全绿",
+    "knowledge_gap": "已理解 @RestController 与 @GetMapping 的入口作用，但接口类型字段实际注入哪个实现未能在延迟复习中解释清楚",
+    "operation_gap": "两次 Controller 编写均出现方法参数来源、实际 Service 方法名或返回值不匹配；展示完整模型后修复，TODO 由教练机械清理",
+    "judgment_gap": "需要先判断固定 GET 是否真的从 HTTP 接收参数，再决定方法是否声明参数；JUnit 精确边界复测仍到期",
+    "transfer_gap": "支付 Controller 未独立迁移成功；完整模型提示后能修复为无参 GET，并正确返回 createReference(\"2001\")",
     "pressure_gap": "未测量"
   }
 }
