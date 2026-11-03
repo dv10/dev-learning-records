@@ -2,7 +2,7 @@
   {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
-    "last_date": "2026-11-02",
+    "last_date": "2026-11-03",
     "pattern": "方法或 getter 的返回值与调用处业务含义对应不稳定",
     "type": "judgment",
     "occurrences": 8,
@@ -17,9 +17,9 @@
     "last_date": "2026-11-02",
     "pattern": "Controller 方法参数来源与 Service 公开方法选择不稳定，容易声明 HTTP 未提供的参数或调用不存在的方法",
     "type": "judgment",
-    "occurrences": 2,
-    "latest_evidence": "订单与支付 Controller 均先添加了固定 GET 未提供的参数，并尝试调用不存在的 generate 方法；支付接口因此实际返回 PAY-null，完整模型提示后修复",
-    "repair_training": "编码前沿调用地图逐层核对：HTTP 是否提供参数、Controller 方法签名、Service 真实公开方法、传入值和返回值；Day 20 先讲参数来源再练习",
+    "occurrences": 4,
+    "latest_evidence": "Day 20 首次把参数注解放到方法上导致编译失败；支付迁移时注解类型和位置正确，但把 paymentId 的注解名称写成 sourceId，分别得到 500 与 400",
+    "repair_training": "逐项核对 URL 占位符或查询键、注解内名称、Java 参数名和 Service 实参；2026-11-06 在新请求契约中延迟复测",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -122,7 +122,7 @@
   {
     "pattern_id": "junit-test-structure-001",
     "first_date": "2026-10-13",
-    "last_date": "2026-10-19",
+    "last_date": "2026-11-03",
     "pattern": "将 JUnit 测试执行语句直接写在类体中，而不是放入带 @Test 的方法",
     "type": "knowledge",
     "occurrences": 1,
@@ -137,9 +137,9 @@
     "last_date": "2026-10-19",
     "pattern": "测试输入未准确命中目标分支，或只看到测试通过而遗漏规则要求的精确边界、异常类型或消息",
     "type": "judgment",
-    "occurrences": 2,
-    "latest_evidence": "仓储计费迁移中独立验证了异常类型和消息，但最初使用 4 与 10 两个普通样本并遗漏精确分界 7；三个测试虽全绿，仍未完整覆盖需求，经一次定位提示后改为 7、10、0",
-    "repair_training": "写测试前根据每条规则列出普通值、规则切换点和非法值；不能用测试全绿代替需求覆盖判断，2026-10-24 在新业务中无提示复测",
+    "occurrences": 3,
+    "latest_evidence": "错误查询参数名测试正确构造 sourceID 请求，实际返回 400，但首次断言 isOk；经失败输出定位后改为 isBadRequest",
+    "repair_training": "写断言前先写出业务预期状态，再选择 isOk、isBadRequest 等断言；2026-11-06 无提示覆盖成功、缺参和错误名称",
     "evidence_scope": "learner",
     "extensions": {}
   },

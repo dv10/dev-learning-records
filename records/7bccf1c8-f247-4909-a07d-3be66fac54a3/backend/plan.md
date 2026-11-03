@@ -297,3 +297,13 @@
 - 两个 Controller 均需要多次定位或完整模型才能修复参数、Service 方法名与返回值，因此结论为“完整答案提示后会做”，不记录为独立迁移。
 - Spring Bean 延迟复习中，能解释 `@Service` 和容器管理，但未能说明接口字段最终注入哪个具体实现；顺延至 2026-11-05。
 - 下一步：Day 20 先讲 URL 路径参数、查询参数如何进入 Java 方法，再学习 `@PathVariable`、`@RequestParam` 与输入边界。
+
+### Day 20 完成记录（2026-11-03）
+
+- 先讲清 URL 路径值、`?` 后查询参数与 Java 方法参数的对应关系，再进入练习；完成订单和支付两个业务的 `@PathVariable`、`@RequestParam` 与 Service 返回链。
+- 订单首次把参数注解放到方法上，编译提示注解不适用于该声明；移动到方法参数前并显式声明 `sourceId` 后通过 4 个参数测试。
+- 支付迁移独立选对两种注解、放置位置、Service 方法和返回值，但注解名称沿用了 `sourceId`；根据 500/400 响应定位后改为 `paymentId`，3 个迁移测试通过。
+- 理解必填 `@RequestParam` 缺失时由 Spring 在进入 Controller 前返回 400；显式注解名称比依赖 Java 参数名推断更清楚稳定。
+- JUnit 短复测中正确构造了错误大小写 `sourceID` 请求，但首次断言为 200；根据真实 400 响应改为 `isBadRequest()`，5 个订单参数测试通过。
+- 最终项目共 16 个测试，Failures 0、Errors 0；当前结论为参数来源基本会做，注解名称匹配和 HTTP 状态断言仍需延迟复测。
+- 下一步：Day 21 先讲 POST、JSON、`@RequestBody`、请求 DTO 与响应 DTO，再完成内存版订单创建接口。

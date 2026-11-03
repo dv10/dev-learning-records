@@ -2,36 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-11-02T10:50:30Z",
+  "updated_at": "2026-11-03T08:51:00Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "理解 Controller 是 HTTP 到 Service 的入口；在完整模型提示下能完成固定 GET 调用链，尚未达到独立迁移",
+  "mastery_level": "能根据 URL 位置选择 @PathVariable 与 @RequestParam，并完成 Controller 返回链；参数注解位置和名称匹配仍需提示",
   "current_cycle": "2026-10-27--cycle-5",
-  "current_day": 19,
-  "strongest_evidence": "订单与支付两个 GET 接口最终均正确形成 HTTP → Controller → Service → 实现类调用链；完整测试共 8 个全部通过，订单接口另经真实 HTTP 请求验证返回 200 与 ORD-1001",
-  "key_gap": "Controller 方法签名、固定参数来源和实际 Service 方法名仍依赖完整模型；Spring 按接口注入具体实现的延迟解释未通过；JUnit 精确边界和 Maven 新依赖复测仍待完成",
-  "next_task": "Day 20：先讲 HTTP 路径参数与查询参数从哪里进入 Java，再学习 @PathVariable、@RequestParam 和输入边界",
+  "current_day": 20,
+  "strongest_evidence": "订单和支付两个业务均完成路径参数、必填查询参数与 Service 返回链；缺参和错误参数名均返回 400，项目 16 个测试全部通过",
+  "key_gap": "能选择参数注解，但首次把参数注解放到方法上，迁移时又沿用旧业务参数名；JUnit 错误参数名测试的请求正确但首次断言成 200；Maven 新依赖复测仍待完成",
+  "next_task": "Day 21：先讲 POST 请求、JSON、@RequestBody 与 DTO 的数据流，再完成内存版订单创建接口",
   "next_review_at": "2026-11-05",
   "pending_reviews": [
-    "已到期：根据新业务规则先列普通、精确边界和异常测试矩阵，再编写 JUnit 测试",
+    "2026-11-06：无提示根据请求契约写出成功、缺参和错误参数名三个 MockMvc 断言",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
     "2026-11-05：无提示解释接口字段实际注入哪个 @Service 实现，并在新 Controller 中保持构造器 Bean 引用"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 20 开始前先用一个请求示例讲清 URL 中路径参数、查询参数与 Java 方法参数的对应关系，再进入编码",
-  "last_session_at": "2026-11-02T10:50:30Z",
+  "recommended_resume_action": "Day 21 先用一张 JSON → DTO → Controller → Service → 响应 DTO 调用图讲解，再创建全部骨架并让学习者完成唯一核心映射",
+  "last_session_at": "2026-11-03T08:51:00Z",
   "evidence_scope": "learner",
   "metrics": {
     "independent_completion_rate": 0.72,
-    "transfer_pass_rate": 0.82,
-    "delayed_review_pass_rate": 0.73,
-    "highest_prompt_level": 4,
-    "evidence_count": 33
+    "transfer_pass_rate": 0.81,
+    "delayed_review_pass_rate": 0.7,
+    "highest_prompt_level": 3,
+    "evidence_count": 38
   },
   "extensions": {
-    "knowledge_gap": "已理解 @RestController 与 @GetMapping 的入口作用，但接口类型字段实际注入哪个实现未能在延迟复习中解释清楚",
-    "operation_gap": "两次 Controller 编写均出现方法参数来源、实际 Service 方法名或返回值不匹配；展示完整模型后修复，TODO 由教练机械清理",
-    "judgment_gap": "需要先判断固定 GET 是否真的从 HTTP 接收参数，再决定方法是否声明参数；JUnit 精确边界复测仍到期",
-    "transfer_gap": "支付 Controller 未独立迁移成功；完整模型提示后能修复为无参 GET，并正确返回 createReference(\"2001\")",
+    "knowledge_gap": "已理解路径参数与查询参数的数据来源、必填查询参数缺失会在进入 Controller 前返回 400；Spring 接口注入具体实现仍待 2026-11-05 复习",
+    "operation_gap": "参数注解首次放在方法上；迁移时注解类型和位置正确，但注解名称从 sourceId 复制到 paymentId 场景",
+    "judgment_gap": "JUnit 能构造错误参数名请求，但首次把预期 400 写成 isOk；需要先从业务预期确定断言，再运行测试",
+    "transfer_gap": "从订单迁移到支付时独立选择了 @PathVariable 与 @RequestParam 并正确调用 Service，经一次参数名定位提示后通过 3 个迁移测试",
     "pressure_gap": "未测量"
   }
 }
