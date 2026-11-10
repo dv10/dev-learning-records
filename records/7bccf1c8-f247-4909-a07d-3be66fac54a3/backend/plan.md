@@ -307,3 +307,14 @@
 - JUnit 短复测中正确构造了错误大小写 `sourceID` 请求，但首次断言为 200；根据真实 400 响应改为 `isBadRequest()`，5 个订单参数测试通过。
 - 最终项目共 16 个测试，Failures 0、Errors 0；当前结论为参数来源基本会做，注解名称匹配和 HTTP 状态断言仍需延迟复测。
 - 下一步：Day 21 先讲 POST、JSON、`@RequestBody`、请求 DTO 与响应 DTO，再完成内存版订单创建接口。
+
+### Day 21 完成记录（2026-11-10）
+
+- 课程于 2026-11-04 开始、2026-11-10 完成；六天间隔只记录为时间间隔，不据此降级，实际活跃学习时长未测量。
+- 先讲 POST、JSON、请求/响应 DTO、`@RequestBody` 与 Jackson：请求方向由无参构造器和 setter 写入 DTO，Controller 使用 getter 读取，响应方向由 getter 序列化为 JSON。
+- 订单 POST 首次尝试给 `OrderCommandService` 不存在的公开字段赋值；定位 Service 的 `createOrder(String, String, int)` 后，使用完整模型完成 DTO getter → Service → 响应 DTO 返回链。
+- 支付迁移独立写对 `@RequestBody` 与 `return` 方向，但把完整 `CreatePaymentRequest` 传给需要三个实参的 Service 方法；提示拆分字段后又把 getter 写成 setter，展示正确模型后修复。
+- 支付方法调用最后一个参数后多余逗号在第二次仍保留，属于机械语法错误，由教练直接清理。
+- 订单和支付 POST 专项测试均为 2 个；最终完整项目 20 个测试全部通过，Failures 0、Errors 0；缺少请求体均返回 400。
+- 当前结论为“理解 POST/DTO 数据流，完整模型提示下会做”；尚未达到独立迁移，安排 2026-11-13 延迟复测 getter 与 Service 方法契约。
+- 下一步：Day 22 周期补强，不引入新注解；先复测 Spring 注入具体实现、DTO getter 和 Service 方法签名，再进行小型 POST 迁移。

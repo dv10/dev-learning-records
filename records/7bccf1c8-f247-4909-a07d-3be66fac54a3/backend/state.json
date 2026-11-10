@@ -2,36 +2,37 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-11-03T08:51:00Z",
+  "updated_at": "2026-11-10T06:05:41Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "能根据 URL 位置选择 @PathVariable 与 @RequestParam，并完成 Controller 返回链；参数注解位置和名称匹配仍需提示",
+  "mastery_level": "理解 JSON、@RequestBody、请求/响应 DTO 与 Jackson 数据流；在完整模型提示下能完成 POST Controller，迁移仍需方法契约提示",
   "current_cycle": "2026-10-27--cycle-5",
-  "current_day": 20,
-  "strongest_evidence": "订单和支付两个业务均完成路径参数、必填查询参数与 Service 返回链；缺参和错误参数名均返回 400，项目 16 个测试全部通过",
-  "key_gap": "能选择参数注解，但首次把参数注解放到方法上，迁移时又沿用旧业务参数名；JUnit 错误参数名测试的请求正确但首次断言成 200；Maven 新依赖复测仍待完成",
-  "next_task": "Day 21：先讲 POST 请求、JSON、@RequestBody 与 DTO 的数据流，再完成内存版订单创建接口",
-  "next_review_at": "2026-11-05",
+  "current_day": 21,
+  "strongest_evidence": "订单与支付两个 POST 接口最终均完成 JSON → 请求 DTO → Controller → Service → 响应 DTO → JSON 链路；缺少请求体返回 400，完整项目 20 个测试全部通过",
+  "key_gap": "Controller 与 Service 的方法契约仍不稳定：先尝试修改不存在的 Service 字段，支付迁移又把完整 DTO 传给需要三个参数的方法，并混淆 getter 与 setter；三项延迟复习均已到期",
+  "next_task": "Day 22：周期补强，先无提示复测 Spring 注入的具体实现与 DTO getter → Service 方法契约，再补做一个小型 POST 迁移",
+  "next_review_at": "2026-11-11",
   "pending_reviews": [
-    "2026-11-06：无提示根据请求契约写出成功、缺参和错误参数名三个 MockMvc 断言",
+    "已到期：无提示根据请求契约写出成功、缺参和错误参数名三个 MockMvc 断言",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
-    "2026-11-05：无提示解释接口字段实际注入哪个 @Service 实现，并在新 Controller 中保持构造器 Bean 引用"
+    "已到期：无提示解释接口字段实际注入哪个 @Service 实现，并在新 Controller 中保持构造器 Bean 引用",
+    "2026-11-13：无提示从请求 DTO 使用 getter 按 Service 方法签名传参，并返回响应 DTO"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 21 先用一张 JSON → DTO → Controller → Service → 响应 DTO 调用图讲解，再创建全部骨架并让学习者完成唯一核心映射",
-  "last_session_at": "2026-11-03T08:51:00Z",
+  "recommended_resume_action": "Day 22 不引入新注解，先用一个小型无提示任务复测 Bean 注入、getter 方向和 Service 方法签名；再决定是否进入周期组合验证",
+  "last_session_at": "2026-11-10T06:05:41Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.72,
-    "transfer_pass_rate": 0.81,
+    "independent_completion_rate": 0.69,
+    "transfer_pass_rate": 0.76,
     "delayed_review_pass_rate": 0.7,
-    "highest_prompt_level": 3,
-    "evidence_count": 38
+    "highest_prompt_level": 4,
+    "evidence_count": 44
   },
   "extensions": {
-    "knowledge_gap": "已理解路径参数与查询参数的数据来源、必填查询参数缺失会在进入 Controller 前返回 400；Spring 接口注入具体实现仍待 2026-11-05 复习",
-    "operation_gap": "参数注解首次放在方法上；迁移时注解类型和位置正确，但注解名称从 sourceId 复制到 paymentId 场景",
-    "judgment_gap": "JUnit 能构造错误参数名请求，但首次把预期 400 写成 isOk；需要先从业务预期确定断言，再运行测试",
-    "transfer_gap": "从订单迁移到支付时独立选择了 @PathVariable 与 @RequestParam 并正确调用 Service，经一次参数名定位提示后通过 3 个迁移测试",
+    "knowledge_gap": "能解释 @RequestBody 触发 Jackson 在 Controller 前用无参构造器和 setter 创建请求 DTO，响应对象通过 getter 转成 JSON",
+    "operation_gap": "订单场景先尝试直接写 Service 不存在的字段；支付迁移传入完整 DTO 而非三个实参，并把 getPaymentId 写成 setPaymentId；末尾多余逗号由教练机械清理",
+    "judgment_gap": "尚未稳定根据 Service 方法签名决定传整个对象还是拆出字段；需要先看形式参数的数量、类型和顺序",
+    "transfer_gap": "支付 POST 迁移在 @RequestBody 和 return 方向上正确，但方法契约与 getter 方向经完整模型提示后才通过",
     "pressure_gap": "未测量"
   }
 }
