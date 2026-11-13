@@ -318,3 +318,12 @@
 - 订单和支付 POST 专项测试均为 2 个；最终完整项目 20 个测试全部通过，Failures 0、Errors 0；缺少请求体均返回 400。
 - 当前结论为“理解 POST/DTO 数据流，完整模型提示下会做”；尚未达到独立迁移，安排 2026-11-13 延迟复测 getter 与 Service 方法契约。
 - 下一步：Day 22 周期补强，不引入新注解；先复测 Spring 注入具体实现、DTO getter 和 Service 方法签名，再进行小型 POST 迁移。
+
+### Day 22 完成记录（2026-11-13）
+
+- 以退款创建作为延迟复测，不引入新注解；骨架提供接口 `RefundCreationService`、唯一 `@Service` 实现、请求/响应 DTO、Controller 与测试。
+- 学习者无提示把构造器参数保存到 `final` 接口字段，正确使用 `@RequestBody`，并按 `createRefund(String, String, int)` 方法契约依次传入三个 getter。
+- 返回链和业务结果均正确；唯一问题是完整 `return` 语句末尾漏分号，属于机械语法错误，由教练直接修复，不降低概念结论。
+- 测试确认 Spring 注入的实际对象为 `DefaultRefundCreationService`；退款专项 3 个测试通过，最终完整项目 23 个测试全部通过，Failures 0、Errors 0。
+- 与 Day 21 相比，Service 方法签名、getter/setter 方向和接口 Bean 保存从完整模型提示提升为无提示独立迁移。
+- 下一步：Day 23 完成第 5 周期组合验证与复盘，补齐 MockMvc 请求契约和 Maven 新依赖、打包复测。

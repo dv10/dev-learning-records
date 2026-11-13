@@ -2,37 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-11-10T06:05:41Z",
+  "updated_at": "2026-11-13T09:13:36Z",
   "level_estimate": "L1（语言基础；条件、对象和集合在提示下会做）",
-  "mastery_level": "理解 JSON、@RequestBody、请求/响应 DTO 与 Jackson 数据流；在完整模型提示下能完成 POST Controller，迁移仍需方法契约提示",
+  "mastery_level": "能无提示完成 Spring 接口 Bean 构造器保存、@RequestBody、DTO getter → Service 方法契约及响应返回；POST 调用链达到独立完成",
   "current_cycle": "2026-10-27--cycle-5",
-  "current_day": 21,
-  "strongest_evidence": "订单与支付两个 POST 接口最终均完成 JSON → 请求 DTO → Controller → Service → 响应 DTO → JSON 链路；缺少请求体返回 400，完整项目 20 个测试全部通过",
-  "key_gap": "Controller 与 Service 的方法契约仍不稳定：先尝试修改不存在的 Service 字段，支付迁移又把完整 DTO 传给需要三个参数的方法，并混淆 getter 与 setter；三项延迟复习均已到期",
-  "next_task": "Day 22：周期补强，先无提示复测 Spring 注入的具体实现与 DTO getter → Service 方法契约，再补做一个小型 POST 迁移",
-  "next_review_at": "2026-11-11",
+  "current_day": 22,
+  "strongest_evidence": "退款场景无提示正确保存 RefundCreationService Bean、使用 @RequestBody、按 String/String/int 契约调用三个 getter 并返回响应；DefaultRefundCreationService 注入验证通过，完整项目 23 个测试全绿",
+  "key_gap": "概念调用链已独立完成，但完整 return 语句末尾仍漏分号；MockMvc 契约测试和 Maven 新依赖两项到期复测尚未完成",
+  "next_task": "Day 23：第 5 周期组合验证与复盘；无提示完成 MockMvc 请求契约、Maven 依赖与打包，并运行全部 API 测试",
+  "next_review_at": "2026-11-16",
   "pending_reviews": [
     "已到期：无提示根据请求契约写出成功、缺参和错误参数名三个 MockMvc 断言",
     "已到期：无提示为新生产库配置版本属性与完整坐标，并选择正确阶段生成和检查 JAR",
-    "已到期：无提示解释接口字段实际注入哪个 @Service 实现，并在新 Controller 中保持构造器 Bean 引用",
-    "2026-11-13：无提示从请求 DTO 使用 getter 按 Service 方法签名传参，并返回响应 DTO"
+    "2026-11-16：在新 POST 场景无提示复查接口 Bean、getter → Service 契约和返回 DTO"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 22 不引入新注解，先用一个小型无提示任务复测 Bean 注入、getter 方向和 Service 方法签名；再决定是否进入周期组合验证",
-  "last_session_at": "2026-11-10T06:05:41Z",
+  "recommended_resume_action": "Day 23 先做 MockMvc 成功、缺参和错误输入契约复测，再完成 Maven 新依赖、package、依赖树和 JAR 检查，最后总结第 5 周期",
+  "last_session_at": "2026-11-13T09:13:36Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.69,
-    "transfer_pass_rate": 0.76,
-    "delayed_review_pass_rate": 0.7,
-    "highest_prompt_level": 4,
-    "evidence_count": 44
+    "independent_completion_rate": 0.71,
+    "transfer_pass_rate": 0.78,
+    "delayed_review_pass_rate": 0.73,
+    "highest_prompt_level": 1,
+    "evidence_count": 48
   },
   "extensions": {
-    "knowledge_gap": "能解释 @RequestBody 触发 Jackson 在 Controller 前用无参构造器和 setter 创建请求 DTO，响应对象通过 getter 转成 JSON",
-    "operation_gap": "订单场景先尝试直接写 Service 不存在的字段；支付迁移传入完整 DTO 而非三个实参，并把 getPaymentId 写成 setPaymentId；末尾多余逗号由教练机械清理",
-    "judgment_gap": "尚未稳定根据 Service 方法签名决定传整个对象还是拆出字段；需要先看形式参数的数量、类型和顺序",
-    "transfer_gap": "支付 POST 迁移在 @RequestBody 和 return 方向上正确，但方法契约与 getter 方向经完整模型提示后才通过",
+    "knowledge_gap": "能通过接口字段和唯一 @Service 实现判断 Spring 注入 DefaultRefundCreationService，并正确理解请求 DTO 的 getter 数据方向",
+    "operation_gap": "退款 POST 的构造器、注解、getter、参数顺序和返回链均独立正确；只漏 return 语句末尾分号，由教练机械修复",
+    "judgment_gap": "已能先查看 RefundCreationService 方法签名再决定拆出三个字段；下一步验证在组合压力下是否稳定",
+    "transfer_gap": "从订单/支付迁移到退款场景时无概念提示完成 Bean 与 POST DTO 调用链，达到独立迁移证据",
     "pressure_gap": "未测量"
   }
 }

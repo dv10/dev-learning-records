@@ -18,8 +18,8 @@
     "pattern": "Controller 方法参数来源与 Service 公开方法选择不稳定，容易声明 HTTP 未提供的参数或调用不存在的方法",
     "type": "judgment",
     "occurrences": 6,
-    "latest_evidence": "Day 21 订单 Controller 先尝试修改 Service 不存在的字段；支付迁移把 CreatePaymentRequest 整体传给需要 String、String、int 的 createPayment 方法",
-    "repair_training": "调用前先定位 Service 的 public 方法，逐项核对形式参数数量、类型、顺序和返回类型；2026-11-11 用新 DTO 无提示复测",
+    "latest_evidence": "2026-11-13 退款延迟复测中无提示定位 RefundCreationService.createRefund(String, String, int)，用三个 getter 按顺序传参并返回结果",
+    "repair_training": "退款场景已独立迁移；2026-11-16 在新 POST 场景再次延迟复查方法契约",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -30,8 +30,8 @@
     "pattern": "混淆对象、字段、构造器参数和赋值方向",
     "type": "knowledge",
     "occurrences": 6,
-    "latest_evidence": "支付 POST 迁移需要读取 paymentId 时写成无参 setPaymentId，混淆 setter 写入与 getter 读取；展示模型后修复",
-    "repair_training": "根据数据方向选择方法：JSON 反序列化由 setter 写入，Controller 向 Service 传值时用 getter 读取；2026-11-13 延迟复测",
+    "latest_evidence": "2026-11-13 退款延迟复测中连续正确使用 getRefundId、getOrderNumber、getAmount 读取请求 DTO，没有再次使用 setter",
+    "repair_training": "getter 读取方向已通过延迟复测；后续在新 DTO 中自然观察",
     "evidence_scope": "learner",
     "extensions": {}
   },
@@ -41,8 +41,8 @@
     "last_date": "2026-11-10",
     "pattern": "完整语句末尾漏分号、字符串单引号或括号数量错误",
     "type": "operation",
-    "occurrences": 8,
-    "latest_evidence": "支付 createPayment 方法调用的最后一个实参后保留逗号，导致非法的表达式开始；getter 修复后仍保留，由教练机械清理",
+    "occurrences": 9,
+    "latest_evidence": "2026-11-13 退款复测的 return 方法调用末尾漏分号，概念链路正确但编译失败；由教练机械补齐",
     "repair_training": "运行前检查参数列表：参数之间有逗号，最后一个参数后无逗号；同时检查成对括号和语句分号",
     "evidence_scope": "learner",
     "extensions": {}
