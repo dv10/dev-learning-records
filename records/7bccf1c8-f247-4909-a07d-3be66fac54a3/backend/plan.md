@@ -327,3 +327,27 @@
 - 测试确认 Spring 注入的实际对象为 `DefaultRefundCreationService`；退款专项 3 个测试通过，最终完整项目 23 个测试全部通过，Failures 0、Errors 0。
 - 与 Day 21 相比，Service 方法签名、getter/setter 方向和接口 Bean 保存从完整模型提示提升为无提示独立迁移。
 - 下一步：Day 23 完成第 5 周期组合验证与复盘，补齐 MockMvc 请求契约和 Maven 新依赖、打包复测。
+
+### Day 23 完成记录（2026-11-16）
+
+- 原计划把 MockMvc 请求契约作为无提示复测，但学习者指出此前未系统讲解 MockMvc；确认教学缺口后撤销“无提示”判断，完整讲解 `@SpringBootTest`、`@AutoConfigureMockMvc`、`perform`、`get`、`param`、`andExpect` 与状态/内容断言。该初始缺口不计为学习者错误。
+- 补讲后成功写出正常参数、缺参和错误参数名三个测试；首次提前闭合 `perform`，导致 `.param` 被调用在 `ResultActions` 上，经对象职责提示后修复，3 个测试全部通过。
+- Maven 延迟复测使用 Commons Codec `1.17.1`：版本属性、完整坐标、dependency 父节点和默认 compile 均正确；属性引用少写最后一个 `n`，经定位后修复。
+- `mvn clean test`、`dependency:tree`、`mvn package` 全部成功；依赖树显示 `commons-codec:1.17.1:compile`，可执行 JAR 同时包含 `OrderReferenceDigest.class` 与 `BOOT-INF/lib/commons-codec-1.17.1.jar`。
+- 最终 27 个测试全部通过。真实 8081 服务验证固定 GET、参数 GET、订单 POST、退款 POST 均返回 200，缺少必填查询参数返回 400；验证后正常关闭应用。
+- 第 5 周期成果已完成：从 Spring Boot 启动和 Bean 注入，推进到 GET 参数、POST DTO、MockMvc、生产依赖与可执行 JAR。能力坐标从 L1 调整为 L2 起步，但独立完成整个项目仍需继续训练。
+- 下一步：先展示并确认第 6 周期计划，确认前不进入 Day 24。
+
+## 第 6 个 7 天周期提案（Day 24 至 Day 30，待确认）
+
+周期成果：为当前订单 API 增加参数校验、统一错误响应和内存版 CRUD，使接口从“能调用”提升到“能处理非法输入和资源不存在”。
+
+- Day 24：Bean Validation 入门，学习 `@Valid`、`@NotBlank`、`@Min`，验证非法 JSON 返回 400。
+- Day 25：统一异常响应，学习 `@RestControllerAdvice`、`@ExceptionHandler` 与错误 DTO。
+- Day 26：内存仓库与查询，使用 `Map` 保存订单，完成创建后按编号查询。
+- Day 27：HTTP 状态语义，学习 `ResponseEntity`，区分 200、201、400、404。
+- Day 28：PUT 与 DELETE，完成订单更新和删除的最小 CRUD。
+- Day 29：组合测试与延迟复习，覆盖成功、精确边界、非法输入和不存在资源。
+- Day 30：小型项目验收、真实 HTTP 调用、Maven 打包与第 6 周期复盘。
+
+每天继续以 90 分钟为基础学习块，可延长；新注解和新类型继续严格“先讲再练”，所有文件由教练创建。
