@@ -2,8 +2,8 @@
   "schema_version": 1,
   "archive_type": "dev-learning-coach-records",
   "record_schema_version": 3,
-  "generated_at": "2026-11-16T11:05:51Z",
-  "archive_revision": "2026-11-16T11-05-51Z--1c9c33215c94",
+  "generated_at": "2026-11-17T02:15:02Z",
+  "archive_revision": "2026-11-17T02-15-02Z--e51909ce71c7",
   "remote_revision": null,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
@@ -17,15 +17,15 @@
     },
     {
       "path": "state.json",
-      "size": 2642,
-      "sha256": "6fa77ba219211c9b294841535a84397f01c9512bd403a13d71df65d926e3342a",
+      "size": 2625,
+      "sha256": "a6c97b698b9d3358b2bade0b4b05d9780515c1e6911648dcce3fb2c091e74b7b",
       "kind": "state",
       "immutable": false
     },
     {
       "path": "plan.md",
-      "size": 33779,
-      "sha256": "3d41bf497ab6db4333bdf8b5b1aad6c447caf928402db37d6a7e267bbd8753da",
+      "size": 33902,
+      "sha256": "6b7b1b78c3df8629185a5fd834af7477c9fd569880667058aa0f612545087270",
       "kind": "plan",
       "immutable": false
     },

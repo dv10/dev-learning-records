@@ -2,14 +2,14 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-11-16T11:04:50Z",
+  "updated_at": "2026-11-17T02:14:48Z",
   "level_estimate": "L2 起步（在骨架和测试支撑下完成分层 Spring Boot API，语言与测试细节仍需巩固）",
   "mastery_level": "已完成 Spring Boot 启动、Bean 注入、GET 参数、POST DTO、MockMvc、Maven 生产依赖与可执行 JAR 的一个完整周期；核心调用链可独立迁移",
-  "current_cycle": "2026-10-27--cycle-5-completed",
+  "current_cycle": "2026-11-17--cycle-6",
   "current_day": 23,
   "strongest_evidence": "第 5 周期最终 27 个测试全绿；真实 8081 运行验证固定 GET、参数 GET、订单 POST、退款 POST 与缺参 400；Commons Codec 以 compile 进入依赖树和 BOOT-INF/lib",
   "key_gap": "MockMvc 首次系统讲解后仍把 param 链到 perform 结果对象；Maven 属性引用漏一个字符；完整语句漏分号连续出现，需要运行前语法检查",
-  "next_task": "先展示并确认第 6 个 7 天周期计划；确认后进入 Day 24 请求参数校验，不在确认前直接开新周期",
+  "next_task": "Day 24：严格先讲 Bean Validation、@Valid、@NotBlank 与 @Min，再创建非法 JSON 返回 400 的练习",
   "next_review_at": "2026-11-19",
   "pending_reviews": [
     "2026-11-19：无提示写出 MockMvc 的 get(...).param(...) 与 perform(...).andExpect(...) 两层链",
@@ -17,7 +17,7 @@
     "2026-11-20：为新生产库配置精确版本属性、compile 依赖，并完成 dependency:tree 与 package 检查"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "先向学习者展示第 6 周期 Day 24 至 Day 30 计划并取得确认；确认后严格先讲 Bean Validation 再创建练习",
+  "recommended_resume_action": "第 6 周期已确认；开启 Day 24 时先完成 Bean Validation 的概念、位置、数据流和最小示例讲解，再创建练习",
   "last_session_at": "2026-11-16T11:04:50Z",
   "evidence_scope": "learner",
   "metrics": {
