@@ -1,5 +1,17 @@
 [
   {
+    "pattern_id": "validation-annotation-import-001",
+    "first_date": "2026-11-18",
+    "last_date": "2026-11-18",
+    "pattern": "能选择并放置 Bean Validation 注解，但迁移时遗漏 import 或在字段和 getter 上重复声明同一约束",
+    "type": "operation",
+    "occurrences": 1,
+    "latest_evidence": "支付 DTO 三个字段规则和 Controller @Valid 位置正确，但首次未导入 NotBlank、Min、Valid，并在 paymentId 字段与 getter 重复添加 NotBlank；提示后修复，完整 33 个测试通过",
+    "repair_training": "添加注解后检查三件事：符号拼写、import、约束只采用一种统一位置；2026-11-20 在退款请求无提示复测",
+    "evidence_scope": "learner",
+    "extensions": {}
+  },
+  {
     "pattern_id": "return-contract-001",
     "first_date": "2026-09-08",
     "last_date": "2026-11-03",

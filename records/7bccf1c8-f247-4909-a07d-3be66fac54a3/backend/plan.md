@@ -353,3 +353,12 @@
 每天继续以 90 分钟为基础学习块，可延长；新注解和新类型继续严格“先讲再练”，所有文件由教练创建。
 
 计划确认记录：学习者于 2026-11-17 明确确认该周期安排；下一次开启学习时从 Day 24 开始。
+
+### Day 24 完成记录（2026-11-18）
+
+- 先讲 Bean Validation 解决的问题、`@Valid`、`@NotBlank`、`@Min` 的职责，以及 JSON → DTO → 校验 → Controller/400 的数据流，再进入练习。
+- 订单请求正确为 `sourceId`、`productName` 和 `quantity` 声明规则；Controller 的 `@Valid` 首次拼成 `@Vaild`，作为机械错误由教练直接修复。
+- 三个订单非法 JSON 测试由原来的 200 变为 400，日志确认抛出 `MethodArgumentNotValidException`，校验发生在业务调用前。
+- 支付迁移正确选择三个字段规则和 Controller 触发位置，但首次遗漏 import，并在 `getPaymentId()` 上重复声明 `@NotBlank`；经编译信息定位后修复。
+- 支付 5 个专项测试通过，完整项目最终 33 个测试全部通过，Failures 0、Errors 0；合法订单和支付路径未被破坏。
+- 下一步：Day 25 先讲全局异常处理器与错误 DTO，把当前默认 400 响应改为稳定、可读的 JSON。
