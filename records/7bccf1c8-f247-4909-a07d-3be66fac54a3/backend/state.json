@@ -2,36 +2,36 @@
   "schema_version": 3,
   "learner_id": "7bccf1c8-f247-4909-a07d-3be66fac54a3",
   "track": "backend",
-  "updated_at": "2026-11-18T06:15:59Z",
+  "updated_at": "2026-11-20T10:26:17Z",
   "level_estimate": "L2 起步（在骨架和测试支撑下完成分层 Spring Boot API，语言与测试细节仍需巩固）",
   "mastery_level": "已完成 Spring Boot 启动、Bean 注入、GET 参数、POST DTO、MockMvc、Maven 生产依赖与可执行 JAR 的一个完整周期；核心调用链可独立迁移",
   "current_cycle": "2026-11-17--cycle-6",
-  "current_day": 24,
-  "strongest_evidence": "订单和支付两个 POST 场景均完成 Bean Validation；非法空白字段和零数量返回 400，合法请求保持 200；完整项目 33 个测试全绿",
-  "key_gap": "校验注解选择和位置正确，但支付迁移遗漏 import 并重复在 getter 声明约束；注解名称出现一次 Valid/Vaild 拼写错误",
-  "next_task": "Day 25：严格先讲 @RestControllerAdvice、@ExceptionHandler、MethodArgumentNotValidException 与错误响应 DTO，再统一参数校验失败 JSON",
-  "next_review_at": "2026-11-20",
+  "current_day": 25,
+  "strongest_evidence": "Bean Validation 两天后无提示迁移到退款成功；统一异常处理覆盖订单、支付、退款并返回具体 field；完整项目 38 个测试全绿",
+  "key_gap": "全局处理器首次遗漏方法级 @ExceptionHandler；注解后多写分号；提取 FieldError 时在构造器实参中重复声明局部变量",
+  "next_task": "Day 26：严格先讲 Map 内存仓库、put/get 和创建后查询的数据流，再创建订单保存与查询练习",
+  "next_review_at": "2026-11-21",
   "pending_reviews": [
-    "2026-11-20：无提示为退款 DTO 添加 @NotBlank、@Min 与 Controller @Valid，并检查 import 和约束位置",
-    "2026-11-20：为新生产库配置精确版本属性、compile 依赖，并完成 dependency:tree 与 package 检查",
-    "2026-11-21：无提示写出 MockMvc 的请求构建器与 perform(...).andExpect(...) 两层链"
+    "2026-11-21：为新生产库配置精确版本属性、compile 依赖，并完成 dependency:tree 与 package 检查",
+    "2026-11-21：无提示写出 MockMvc 的请求构建器与 perform(...).andExpect(...) 两层链",
+    "2026-11-22：在新异常类型中复查 @ExceptionHandler 匹配、HTTP 状态和错误 DTO 返回"
   ],
   "requires_previous_code": true,
-  "recommended_resume_action": "Day 24 已完成；开启 Day 25 时先讲默认校验异常如何经过全局异常处理器转换为稳定错误 DTO，再创建练习",
-  "last_session_at": "2026-11-18T06:15:59Z",
+  "recommended_resume_action": "Day 25 已完成；开启 Day 26 时先讲 Map 的键和值、put/get 与仓库职责，再创建内存订单仓库练习",
+  "last_session_at": "2026-11-20T10:26:17Z",
   "evidence_scope": "learner",
   "metrics": {
-    "independent_completion_rate": 0.73,
-    "transfer_pass_rate": 0.80,
-    "delayed_review_pass_rate": 0.74,
+    "independent_completion_rate": 0.74,
+    "transfer_pass_rate": 0.81,
+    "delayed_review_pass_rate": 0.77,
     "highest_prompt_level": 3,
-    "evidence_count": 57
+    "evidence_count": 60
   },
   "extensions": {
-    "knowledge_gap": "理解 @Valid 是 Controller 触发器、@NotBlank/@Min 是 DTO 字段规则；支付迁移时混用字段和 getter 约束，需要复测声明位置",
-    "operation_gap": "支付迁移遗漏 javax.validation import；订单首次把 Valid 拼成 Vaild，仍需加强编译前的符号名检查",
+    "knowledge_gap": "Bean Validation 已通过退款延迟迁移；全局异常处理首次遗漏方法级异常匹配，需在新异常类型中复测",
+    "operation_gap": "注解末尾误加分号，构造器实参中重复局部变量声明；仍需区分声明语句和参数表达式",
     "judgment_gap": "能根据依赖实际用于生产代码判断默认 compile，并用依赖树、JAR 内容和真实 HTTP 共同验证，不再只看 BUILD SUCCESS",
-    "transfer_gap": "Bean Validation 已从订单迁移到支付，规则选择和触发位置正确；需要在退款场景无提示复测 import 和字段位置",
+    "transfer_gap": "Bean Validation 已跨订单、支付、退款并通过延迟迁移；全局错误 DTO 已覆盖三个接口，但尚未迁移到第二种异常类型",
     "pressure_gap": "未测量"
   }
 }
